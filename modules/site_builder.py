@@ -96,7 +96,7 @@ def build_sitemap(config: dict):
     base_url = os.getenv("SITE_BASE_URL", "").rstrip("/")
     
     pages = [
-        "", # index.html
+        "/", # index.html
         "/menu.html",
         "/matcha-pune.html",
         "/korean-food-pune-guide.html",
