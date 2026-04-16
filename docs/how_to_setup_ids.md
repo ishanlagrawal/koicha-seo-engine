@@ -1,72 +1,63 @@
 # How-To Guide: Setting Up Automation IDs
+=======================================
 
-This guide explains how to get the specific IDs needed for the Koicha SEO Engine to automate Google and Telegram interactions.
+This guide tracks all specific IDs and configurations needed for the Koicha SEO Engine. 
+
+---
+
+## 🏁 CURRENT ENGINE STATUS
+- **Telegram Bot:** ✅ ACTIVE
+- **Blogger Automation:** ✅ ACTIVE
+- **Google Drive Photos:** ✅ ACTIVE (Syncing from Private)
+- **Google Sheets Master:** ✅ ACTIVE (Connected)
+- **Google Maps (GBP):** ⚠️ PENDING (Restricted API access)
 
 ---
 
 ## 1. Telegram Chat ID
-**Current Status:** ✅ FOUND (`1477581734`)
-
-**How it was found:**
-1.  Shared a message with the bot `KoichaSEO_Bot`.
-2.  Ran `scripts/get_chat_id.py` to pull the latest interaction ID.
-3.  Updated `.env` with `TELEGRAM_CHAT_ID=1477581734`.
-
----
+**Status:** ✅ COMPLETE
+- **Action:** Added `TELEGRAM_CHAT_ID` to `.env`.
+- **Bot:** `@KoichaSEO_Bot`.
 
 ## 2. Blogger Blog ID
-**Status:** ✅ FOUND (`5956974216578086430`)
-
-**How it was found:**
-1.  Created the blog at `koichapune.blogspot.com`.
-2.  Retrieved the ID from the URL and added it to `.env`.
-
----
+**Status:** ✅ COMPLETE
+- **Action:** Added `BLOGGER_BLOG_ID` to `.env`.
+- **URL:** [koichapune.blogspot.com](https://koichapune.blogspot.com/)
 
 ## 3. Google Sheet Master ID
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETE
+- **Action:** Created Sheet "Koicha Digital Master".
+- **Security:** Shared the sheet with the Service Account email.
+- **Verification:** Engine successfully connected on 2026-04-16.
 
-**Steps to get it:**
-1.  Create a new Google Sheet.
-2.  Name it `Koicha SEO Content Master`.
-3.  Look at the browser URL: `https://docs.google.com/spreadsheets/d/1abc123.../edit`
-4.  The string between `/d/` and `/edit` is your ID.
-5.  Share the sheet with the Service Account email found in your `.secret` or GCP console.
-6.  Add to `.env` as `KOICHA_SHEET_ID`.
+## 4. Google Drive Assets Folder
+**Status:** ✅ COMPLETE
+- **Action:** Pointed the engine to the direct "Photos" subfolder.
+- **Security:** Engine uses OAuth2 to pull photos from your private folder (No need to make folder public).
+
+- **Constraint:** Currently restricted by Google. Quota is 0 until we apply for full API access.
+
+### 🔄 ZERO-COST WORKAROUND: Metricool
+Since the official API is restricted, we use **Metricool** to bridge the gap:
+1. **Signup:** Create a free account at [Metricool.com](https://metricool.com/).
+2. **Connect:** Use the Official Koicha Email to link your Google Business Profile.
+3. **Weekly Sync:**
+   - Run the Koicha Engine to generate new articles (`data/articles/`).
+   - Copy the text and photo to Metricool's scheduler once a week.
+
+## 6. Google Cloud Setup (GCP)
+**Status:** ✅ COMPLETE
+- **Project:** `[GCP_PROJECT_ID]`
+- **Steps Taken:**
+  1. Configured OAuth Consent Screen.
+  2. Downloaded and renamed `client_secrets.json`.
+  3. Ran `scripts/auth_blogger.py` to generate `token.pickle`.
+  4. Added the following Scopes:
+     - `blogger`
+     - `drive.readonly`
+     - `business.manage` (Awaiting Google approval)
 
 ---
 
-## 4. Google Business Profile (GBP) Access
-**Status:** ⏳ PENDING
-
-**Steps to get it:**
-1.  Ask the owner to go to [Business Profile Manager](https://business.google.com/).
-2.  Settings -> Users -> Add User.
-3.  Invite your dedicated "Engine" email as **Manager**.
-
----
-
-## 5. Google Search Console
-**Status:** ✅ VERIFIED (Blogger & GitHub)
-
-**Verification History:**
-1.  **Blogger:** Auto-linked as the same account was used.
-2.  **GitHub:** Verified via HTML meta tag in `base.html` after correcting a URL mismatch.
-
----
-
-## 6. Google Cloud Console (OAuth & Automation)
-**Status:** ⏳ IN PROGRESS
-
-This is required for the engine to post directly to Blogger/Maps without manual login.
-
-**Steps Completed:**
-1.  Enabled **Blogger API v3** in GCP Project `credible-spark-465804-j5`.
-2.  Configured **OAuth Consent Screen** (External mode).
-3.  Added `koicha.india.digital@gmail.com` and personal email as **Test Users**.
-4.  Added personal email as an **Admin/Author** on Blogger Settings.
-
-**Next Step:**
-1.  Go to **Credentials > + Create Credentials > OAuth client ID**.
-2.  Choose **Desktop App**.
-3.  Download the JSON, rename it to `client_secrets.json`, and place it in the project root.
+## 💡 MAINTENANCE: Adding new Photos
+Just drop your new artisan food photos into the Drive Folder linked in our Private Assets. The Engine will automatically find them and pick a random one for your next blog post!

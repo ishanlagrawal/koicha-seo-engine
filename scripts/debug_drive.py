@@ -23,4 +23,5 @@ def list_drive_files(folder_id):
             print(f"- {f['name']} ({f['mimeType']})")
 
 if __name__ == "__main__":
-    list_drive_files('1btA4R9L-coFjiwbgc8GhpIbT6u14QNyH')
+    drive_id = os.getenv("DRIVE_FOLDER_ID", "[YOUR_DRIVE_FOLDER_ID]")
+    list_drive_files(drive_id)

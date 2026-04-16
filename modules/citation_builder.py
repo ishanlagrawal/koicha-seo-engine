@@ -43,6 +43,9 @@ def post_to_blogger(title: str, content: str, blog_id: str, image_url: str = Non
             print("Error: Auth required. Run scripts/auth_blogger.py first.")
             return
 
+    import modules.sheet_utils as sheet_utils
+    from datetime import datetime
+
     service = build('blogger', 'v3', credentials=creds)
     
     html_content = content.replace('\n', '<br>')
@@ -60,6 +63,19 @@ def post_to_blogger(title: str, content: str, blog_id: str, image_url: str = Non
         request = posts.insert(blogId=blog_id, body=body)
         result = request.execute()
         print(f"[SUCCESS] Successfully posted: {result['url']}")
+        
+        # Log to Master Sheet [NEW]
+        sheet_data = [
+            datetime.now().strftime("%Y-%m-%d"),
+            "Blogger",
+            title,
+            result['url'],
+            "Live",
+            "Korean food, Pune, Matcha"
+        ]
+        sheet_editor = sheet_utils.KoichaSheetEditor()
+        sheet_editor.append_row("Article_Log", sheet_data)
+        
     except Exception as e:
         print(f"[ERROR] Error posting to Blogger: {str(e)}")
 

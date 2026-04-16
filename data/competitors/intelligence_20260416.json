@@ -1,0 +1,22 @@
+{
+    "timestamp": "2026-04-16 13:56:37",
+    "competitors": {
+        "KINI": {
+            "avg_price_gimbap": 350,
+            "rating": 4.2,
+            "recent_complaints": [
+                "Wait time",
+                "Portion size"
+            ],
+            "seo_weakness": "Lacks 'Ceremonial Grade' matcha"
+        },
+        "Seoul Bunsik": {
+            "avg_price_gimbap": 280,
+            "rating": 4.5,
+            "recent_complaints": [
+                "Small seating area"
+            ],
+            "seo_weakness": "Lacks premium branding; perceived as 'Street Stall'"
+        }
+    }
+}

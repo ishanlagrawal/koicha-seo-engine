@@ -3,10 +3,12 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import pickle
 
-# The scopes for Blogger and Drive API
+# The scopes for Blogger, Drive, and Google Business Profile
 SCOPES = [
     'https://www.googleapis.com/auth/blogger',
-    'https://www.googleapis.com/auth/drive.readonly'
+    'https://www.googleapis.com/auth/drive.readonly',
+    'https://www.googleapis.com/auth/business.manage',
+    'https://www.googleapis.com/auth/gmail.readonly'
 ]
 
 def main():

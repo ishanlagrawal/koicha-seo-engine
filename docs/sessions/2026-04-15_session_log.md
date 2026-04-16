@@ -18,14 +18,14 @@ Today we successfully moved the Koicha Digital Footprint Engine from planning to
 - **SEO:** Generated a valid Schema.org JSON-LD for the restaurant.
 
 ### 4. Integration & Prep
-- **Telegram Bot:** Synced with `KoichaSEO_Bot` and retrieved Chat ID `1477581734`.
+- **Telegram Bot:** Synced with `KoichaSEO_Bot` and retrieved Chat ID `[TELEGRAM_CHAT_ID]`.
 - **Project Structure:** Created checklists and "How-To" guides in the `docs/` folder.
 
 ---
 
 ## 🚦 Strategic Decisions
 - **Official Email:** `koicha.india@gmail.com`
-- **GCP Structure:** Using existing project `credible-spark-465804-j5` for now, but added the new official email as an **Owner** to keep things clean.
+- **GCP Structure:** Using existing project `[GCP_PROJECT_ID]` for now, but added the new official email as an **Owner** to keep things clean.
 - **Cost Management:** Confirmed sharing the $200 free credit bucket with budget alerts active.
 
 ---

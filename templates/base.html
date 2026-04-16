@@ -42,21 +42,29 @@
 
   <!-- Header / Nav -->
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header-inner">
       <a href="{{ base_url }}/" class="logo" aria-label="Koicha Home">
-        <span class="logo-text">Koicha</span>
-        <span class="logo-tagline">The Art of Matcha & More</span>
+        <img src="{{ base_url }}/{{ logo_url }}" alt="Koicha Logo" class="header-logo-img">
+        <div class="logo-group">
+            <span class="logo-text">Koicha</span>
+            <span class="logo-tagline">The Art of Matcha & More</span>
+        </div>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="{{ base_url }}/menu.html">Menu</a>
         <a href="{{ base_url }}/matcha-pune.html">Matcha</a>
         <a href="{{ base_url }}/korean-food-pune-guide.html">Guide</a>
-        <a href="{{ base_url }}/faq.html">FAQ</a>
         <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-primary" target="_blank" rel="noopener"
           id="order-swiggy-nav">Order on Swiggy</a>
       </nav>
     </div>
   </header>
+
+  <!-- WhatsApp Floating Button [NEW] -->
+  <a href="https://wa.me/{{ whatsapp_num }}" class="whatsapp-btn" target="_blank" aria-label="Chat with the Artisan">
+    <div class="wa-icon">🍵</div>
+    <span class="wa-text">Order on WhatsApp</span>
+  </a>
 
   <!-- Page Content -->
   <main id="main-content">
