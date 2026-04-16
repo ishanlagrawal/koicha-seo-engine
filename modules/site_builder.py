@@ -15,7 +15,7 @@ load_dotenv()
 
 CONFIG_PATH = Path("config/koicha_config.json")
 TEMPLATES_DIR = Path("templates")
-OUTPUT_SITE = Path("site")
+OUTPUT_DIR = Path("docs")
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = "llama-3.1-8b-instant" # Faster model for short content
@@ -55,7 +55,7 @@ def build_index(config: dict, env: Environment):
         restaurant_schema=restaurant_schema,
         base_url=os.getenv("SITE_BASE_URL", "")
     )
-    with open(OUTPUT_SITE / "index.html", "w", encoding="utf-8") as f:
+    with open(OUTPUT_DIR / "index.html", "w", encoding="utf-8") as f:
         f.write(html)
 
 def build_menu_page(config: dict, env: Environment):
@@ -76,7 +76,7 @@ def build_menu_page(config: dict, env: Environment):
         menu_schema=menu_schema,
         base_url=os.getenv("SITE_BASE_URL", "")
     )
-    with open(OUTPUT_SITE / "menu.html", "w", encoding="utf-8") as f:
+    with open(OUTPUT_DIR / "menu.html", "w", encoding="utf-8") as f:
         f.write(html)
 
 def build_seo_pages(config: dict, env: Environment):
@@ -88,14 +88,14 @@ def build_seo_pages(config: dict, env: Environment):
     ]
     for filename, title in pages:
         print(f"Building {filename}...")
-        with open(OUTPUT_SITE / filename, "w", encoding="utf-8") as f:
+        with open(OUTPUT_DIR / filename, "w", encoding="utf-8") as f:
             f.write(f"<h1>{title}</h1><p>Content active and optimized.</p>")
 
 def run():
     print("\nKoicha Site Builder -- Module 2")
     print("=" * 45)
 
-    OUTPUT_SITE.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     config = load_config()
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
 
@@ -104,7 +104,7 @@ def run():
     build_seo_pages(config, env)
 
     print("\nModule 2 Complete!")
-    print(f"Site generated in: {OUTPUT_SITE}/")
+    print(f"Site generated in: {OUTPUT_DIR}/")
 
 if __name__ == "__main__":
     run()
