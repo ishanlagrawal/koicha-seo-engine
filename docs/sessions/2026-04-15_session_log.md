@@ -24,7 +24,7 @@ Today we successfully moved the Koicha Digital Footprint Engine from planning to
 ---
 
 ## 🚦 Strategic Decisions
-- **Official Email:** Decided to move toward an official Gmail (`koicha.india.digital@gmail.com`) for long-term separation and professionalism.
+- **Official Email:** `koicha.india@gmail.com`
 - **GCP Structure:** Using existing project `credible-spark-465804-j5` for now, but added the new official email as an **Owner** to keep things clean.
 - **Cost Management:** Confirmed sharing the $200 free credit bucket with budget alerts active.
 

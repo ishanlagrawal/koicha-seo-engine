@@ -15,14 +15,11 @@ This guide explains how to get the specific IDs needed for the Koicha SEO Engine
 ---
 
 ## 2. Blogger Blog ID
-**Status:** ⏳ PENDING
+**Status:** ✅ FOUND (`5956974216578086430`)
 
-**Steps to get it:**
-1.  Visit [Blogger.com](https://www.blogger.com/).
-2.  Create a blog titled `Koicha — Korean Food & Matcha Pune`.
-3.  Choose a URL like `koichapune.blogspot.com`.
-4.  Copy the long string of numbers at the very end of your browser's URL while on the Blogger dashboard.
-5.  Add to `.env` as `BLOGGER_BLOG_ID`.
+**How it was found:**
+1.  Created the blog at `koichapune.blogspot.com`.
+2.  Retrieved the ID from the URL and added it to `.env`.
 
 ---
 
@@ -50,22 +47,26 @@ This guide explains how to get the specific IDs needed for the Koicha SEO Engine
 ---
 
 ## 5. Google Search Console
-**Status:** ⏳ PENDING (Blogger: DONE)
+**Status:** ✅ VERIFIED (Blogger & GitHub)
 
-**Steps for Blogger:**
-1.  Blogger Auto-Links: If logged into the same Google account, Blogger automatically adds your site to GSC.
-2.  Go to [Google Search Console](https://search.google.com/search-console).
-3.  Click "Add Property" > "URL Prefix".
-4.  Enter `https://koichapune.blogspot.com` (your URL).
-5.  Click "Continue" (Auto-verified).
+**Verification History:**
+1.  **Blogger:** Auto-linked as the same account was used.
+2.  **GitHub:** Verified via HTML meta tag in `base.html` after correcting a URL mismatch.
 
-**Steps for GitHub Pages:**
-1.  In GSC, click "Add Property" > "URL Prefix".
-2.  Enter `https://ishanlagrawal.github.io/koicha-seo-engine/`.
-3.  Click "Continue".
-4.  Choose "HTML tag" verification method.
-5.  Copy the `<meta>` tag provided.
-6.  Paste it into `templates/base.html` inside the `<head>` section.
-7.  Run `python modules/site_builder.py` to rebuild.
-8.  Push code to GitHub.
-9.  Click "Verify" in GSC.
+---
+
+## 6. Google Cloud Console (OAuth & Automation)
+**Status:** ⏳ IN PROGRESS
+
+This is required for the engine to post directly to Blogger/Maps without manual login.
+
+**Steps Completed:**
+1.  Enabled **Blogger API v3** in GCP Project `credible-spark-465804-j5`.
+2.  Configured **OAuth Consent Screen** (External mode).
+3.  Added `koicha.india.digital@gmail.com` and personal email as **Test Users**.
+4.  Added personal email as an **Admin/Author** on Blogger Settings.
+
+**Next Step:**
+1.  Go to **Credentials > + Create Credentials > OAuth client ID**.
+2.  Choose **Desktop App**.
+3.  Download the JSON, rename it to `client_secrets.json`, and place it in the project root.
