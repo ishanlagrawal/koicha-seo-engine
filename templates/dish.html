@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.name }} — Koicha Korean Food Pune | Koregaon Park{% endblock %}
+{% block meta_description %}{{ item.name }} at Koicha, Koregaon Park Pune. {{ description[:120] }}... Order on Swiggy.{% endblock %}
+{% block og_title %}{{ item.name }} — Koicha Korean Food Pune{% endblock %}
+{% block og_description %}{{ description[:150] }}{% endblock %}
+{% block og_url %}{{ base_url }}/menu/{{ item.dish_slug }}.html{% endblock %}
+
+{% block schema %}
+<!-- MenuItem Schema -->
+<script type="application/ld+json">
+{{ item_schema }}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{{ faq_schema }}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ base_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Menu", "item": "{{ base_url }}/menu.html" },
+    { "@type": "ListItem", "position": 3, "name": "{{ item.category }}", "item": "{{ base_url }}/menu.html#{{ item.category | lower | replace(' ', '-') }}" },
+    { "@type": "ListItem", "position": 4, "name": "{{ item.name }}", "item": "{{ base_url }}/menu/{{ item.dish_slug }}.html" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ base_url }}/">Home</a></li>
+      <li><a href="{{ base_url }}/menu.html">Menu</a></li>
+      <li><a href="{{ base_url }}/menu.html#{{ item.category | lower | replace(' ', '-') }}">{{ item.category }}</a></li>
+      <li aria-current="page">{{ item.name }}</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- Dish Hero -->
+<article class="dish-detail" itemscope itemtype="https://schema.org/MenuItem">
+  <div class="container">
+
+    <header class="dish-header">
+      <div class="dish-meta-tags">
+        <span class="tag tag-category">{{ item.category }}</span>
+        {% if item.is_veg %}
+        <span class="tag tag-veg" aria-label="Vegetarian">🟢 Veg</span>
+        {% else %}
+        <span class="tag tag-nonveg" aria-label="Non-Vegetarian">🔴 Non-Veg</span>
+        {% endif %}
+      </div>
+
+      <h1 itemprop="name">{{ item.name }}</h1>
+
+      {% if item.price_inr %}
+      <div class="dish-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+        <span class="price-amount" itemprop="price" content="{{ item.price_inr }}">₹{{ item.price_inr }}</span>
+        <meta itemprop="priceCurrency" content="INR">
+        <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
+        <span class="price-note">Limited Batches</span>
+      </div>
+      {% endif %}
+    </header>
+
+    <!-- Description -->
+    <section class="dish-description" aria-label="Dish description">
+      <p itemprop="description">{{ description }}</p>
+    </section>
+
+    <!-- Order CTA -->
+    <div class="dish-cta">
+      <a href="https://www.swiggy.com/direct/brand/771805"
+         class="btn btn-primary btn-large"
+         id="order-swiggy-dish-{{ item.dish_slug }}"
+         target="_blank"
+         rel="noopener"
+         aria-label="Order {{ item.name }} on Swiggy">
+        🍱 Order on Swiggy
+      </a>
+      <p class="cta-note">Available 2 PM–11 PM · Tue–Sun · Koregaon Park, Pune</p>
+    </div>
+
+    <!-- Add-ons -->
+    {% if item.addons %}
+    <section class="dish-addons" aria-label="Add-ons">
+      <h2>Customise Your Order</h2>
+      <ul class="addon-list">
+        {% for addon in item.addons %}
+        <li class="addon-item" itemprop="menuAddOn" itemscope itemtype="https://schema.org/MenuItem">
+          <span itemprop="name">{{ addon.name }}</span>
+          <span class="addon-price">+₹{{ addon.price_inr }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- FAQ Section -->
+    {% if faqs %}
+    <section class="dish-faq" aria-label="Frequently asked questions about {{ item.name }}">
+      <h2>People Also Ask</h2>
+      <dl class="faq-list">
+        {% for faq in faqs %}
+        <div class="faq-item">
+          <dt class="faq-question">{{ faq.question }}</dt>
+          <dd class="faq-answer">{{ faq.answer }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </section>
+    {% endif %}
+
+    <!-- Related Navigation -->
+    <section class="dish-nav" aria-label="Explore more">
+      <a href="{{ base_url }}/menu.html" class="btn btn-secondary" id="back-to-menu">← Back to Full Menu</a>
+      <a href="{{ base_url }}/menu.html#{{ item.category | lower | replace(' ', '-') }}" class="btn btn-secondary">
+        More {{ item.category }}
+      </a>
+    </section>
+
+  </div>
+</article>
+
+{% endblock %}

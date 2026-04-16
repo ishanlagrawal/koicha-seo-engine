@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.env.local
+
+# API tokens / credentials (NEVER commit these)
+config/gbp_token.json
+config/gbp_credentials.json
+config/*.json
+!config/koicha_config.json
+
+# Generated site output (rebuild on deploy)
+site/
+
+# Data files (menu PDFs, photos)
+data/photos/
+data/*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log

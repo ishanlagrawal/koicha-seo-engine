@@ -1,0 +1,332 @@
+{
+  "brand": {
+    "name": "Koicha",
+    "tagline": "The Art of Matcha & More",
+    "cuisine": ["Korean Food", "Matcha", "Asian"],
+    "format": "Pop-up (limited batches)",
+    "instagram": "@koicha.india",
+    "swiggy_url": "https://www.swiggy.com/direct/brand/771805",
+    "swiggy_brand_id": "771805",
+    "primary_color": "#3A9D8F",
+    "secondary_color": "#F5F0E8"
+  },
+  "location": {
+    "name": "Easy Boba",
+    "street": "Lane 7",
+    "neighborhood": "Koregaon Park",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "country": "India",
+    "postal_code": "411001",
+    "full_address": "Easy Boba, Lane 7, Koregaon Park, Pune 411001",
+    "short_address": "Koregaon Park, Pune",
+    "is_permanent": true,
+    "google_maps_url": "TBD"
+  },
+  "hours": {
+    "monday": "CLOSED",
+    "tuesday": "14:00-23:00",
+    "wednesday": "14:00-23:00",
+    "thursday": "14:00-23:00",
+    "friday": "14:00-23:00",
+    "saturday": "14:00-23:00",
+    "sunday": "14:00-23:00",
+    "display": "2 PM \u2013 11 PM (Closed Mondays)"
+  },
+  "legal": {
+    "fssai_license": true,
+    "trademark_status": "In process",
+    "business_entity": "TBD"
+  },
+  "gbp": {
+    "claimed": true,
+    "verified": true,
+    "review_count": 10,
+    "average_rating": 4.8
+  },
+  "brand_voice": {
+    "tone": "Warm, artisan, slightly playful. Never corporate.",
+    "use": ["food metaphors", "matcha references", "limited-batch exclusivity"],
+    "never_use": [
+      "Thank you for your feedback",
+      "We apologize for any inconvenience",
+      "discount language",
+      "cheap/affordable framing"
+    ],
+    "signoff": "The Koicha Team \ud83c\udf75",
+    "max_response_words": 80
+  },
+  "seo_targets": {
+    "primary": ["Korean food Pune", "Korean restaurant Koregaon Park"],
+    "dish_level": [
+      "Gimbap Pune",
+      "Tteokbokki Pune",
+      "Yangnyeom chicken Pune",
+      "Bibimbap Pune",
+      "Korean fried chicken Pune"
+    ],
+    "intent": [
+      "matcha cafe Pune",
+      "ceremonial matcha Pune",
+      "Korean food delivery Koregaon Park"
+    ],
+    "ai_search": [
+      "best Korean food in Pune",
+      "where to find Gimbap in Pune",
+      "authentic Korean restaurant Pune",
+      "vegetarian Korean food Pune"
+    ]
+  },
+  "competitors": [
+    {
+      "name": "Seoul Bunsik",
+      "area": "Koregaon Park",
+      "worry_level": "medium",
+      "maps_url": "https://maps.app.goo.gl/iDB9QnVHf3qmXmHj9"
+    },
+    {
+      "name": "KINI",
+      "area": "Koregaon Park",
+      "worry_level": "high",
+      "maps_url": "https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5",
+      "notes": "Owner most worried about this one"
+    }
+  ],
+  "menu": {
+    "note": "Prices for matcha drinks TBD — will be updated from PDF",
+    "categories": [
+      {
+        "name": "Korean Fried Chicken",
+        "slug": "korean-fried-chicken",
+        "items": [
+          {
+            "name": "K-Fried Chicken",
+            "slug": "k-fried-chicken",
+            "price_inr": 329,
+            "is_veg": false,
+            "category": "Korean Fried Chicken"
+          },
+          {
+            "name": "Yangnyeom Chicken",
+            "slug": "yangnyeom-chicken",
+            "price_inr": 349,
+            "is_veg": false,
+            "category": "Korean Fried Chicken"
+          },
+          {
+            "name": "Soya Chicken",
+            "slug": "soya-chicken",
+            "price_inr": 349,
+            "is_veg": false,
+            "category": "Korean Fried Chicken"
+          }
+        ]
+      },
+      {
+        "name": "Kimchi Specials",
+        "slug": "kimchi-specials",
+        "items": [
+          {
+            "name": "Kimchi Fried Rice (Veg)",
+            "slug": "kimchi-fried-rice-veg",
+            "price_inr": 289,
+            "is_veg": true,
+            "category": "Kimchi Specials"
+          },
+          {
+            "name": "Kimchi Fried Rice (NV)",
+            "slug": "kimchi-fried-rice-nv",
+            "price_inr": 349,
+            "is_veg": false,
+            "category": "Kimchi Specials"
+          },
+          {
+            "name": "Kimchi Soup Fried Rice (Veg)",
+            "slug": "kimchi-soup-fried-rice-veg",
+            "price_inr": 299,
+            "is_veg": true,
+            "category": "Kimchi Specials"
+          },
+          {
+            "name": "Kimchi Soup Fried Rice (NV)",
+            "slug": "kimchi-soup-fried-rice-nv",
+            "price_inr": 349,
+            "is_veg": false,
+            "category": "Kimchi Specials"
+          }
+        ],
+        "addons": [
+          { "name": "Chicken Sausage", "price_inr": 60 },
+          { "name": "Egg", "price_inr": 25 },
+          { "name": "Tofu", "price_inr": 40 }
+        ]
+      },
+      {
+        "name": "Gimbap",
+        "slug": "gimbap",
+        "items": [
+          {
+            "name": "Gimbap (Veg)",
+            "slug": "gimbap-veg",
+            "price_inr": 239,
+            "is_veg": true,
+            "category": "Gimbap"
+          },
+          {
+            "name": "Gimbap (Egg)",
+            "slug": "gimbap-egg",
+            "price_inr": 249,
+            "is_veg": true,
+            "category": "Gimbap"
+          },
+          {
+            "name": "Gimbap (Chicken)",
+            "slug": "gimbap-chicken",
+            "price_inr": 269,
+            "is_veg": false,
+            "category": "Gimbap"
+          },
+          {
+            "name": "Gimbap (Tuna)",
+            "slug": "gimbap-tuna",
+            "price_inr": 289,
+            "is_veg": false,
+            "category": "Gimbap"
+          }
+        ]
+      },
+      {
+        "name": "Tteokbokki",
+        "slug": "tteokbokki",
+        "items": [
+          {
+            "name": "Classic Tteokbokki",
+            "slug": "classic-tteokbokki",
+            "price_inr": 349,
+            "is_veg": true,
+            "category": "Tteokbokki"
+          },
+          {
+            "name": "Cream & Cheese Tteokbokki",
+            "slug": "cream-cheese-tteokbokki",
+            "price_inr": 389,
+            "is_veg": true,
+            "category": "Tteokbokki"
+          },
+          {
+            "name": "Chicken Tteokbokki",
+            "slug": "chicken-tteokbokki",
+            "price_inr": 389,
+            "is_veg": false,
+            "category": "Tteokbokki"
+          },
+          {
+            "name": "Fish Tteokbokki",
+            "slug": "fish-tteokbokki",
+            "price_inr": 389,
+            "is_veg": false,
+            "category": "Tteokbokki"
+          }
+        ],
+        "addons": [
+          { "name": "Cheese", "price_inr": 30 },
+          { "name": "Egg", "price_inr": 25 },
+          { "name": "Soy", "price_inr": 15 }
+        ]
+      },
+      {
+        "name": "Bap Bowls",
+        "slug": "bap-bowls",
+        "items": [
+          {
+            "name": "Bibimbap (Veg)",
+            "slug": "bibimbap-veg",
+            "price_inr": 299,
+            "is_veg": true,
+            "category": "Bap Bowls"
+          },
+          {
+            "name": "Bibimbap (Chicken)",
+            "slug": "bibimbap-chicken",
+            "price_inr": 349,
+            "is_veg": false,
+            "category": "Bap Bowls"
+          },
+          {
+            "name": "Chicken Bulgogi Bowl",
+            "slug": "chicken-bulgogi-bowl",
+            "price_inr": 379,
+            "is_veg": false,
+            "category": "Bap Bowls"
+          },
+          {
+            "name": "Chicken Katsu Bowl",
+            "slug": "chicken-katsu-bowl",
+            "price_inr": 399,
+            "is_veg": false,
+            "category": "Bap Bowls"
+          }
+        ]
+      },
+      {
+        "name": "Matcha Drinks",
+        "slug": "matcha-drinks",
+        "matcha_source": "Shizuoka, Japan",
+        "matcha_grade": "Ceremonial",
+        "items": [
+          {
+            "name": "Mango Passion Matcha",
+            "slug": "mango-passion-matcha",
+            "price_inr": null,
+            "is_veg": true,
+            "category": "Matcha Drinks",
+            "note": "Price TBD from PDF"
+          },
+          {
+            "name": "Banana & Blueberry Matcha",
+            "slug": "banana-blueberry-matcha",
+            "price_inr": null,
+            "is_veg": true,
+            "category": "Matcha Drinks",
+            "note": "Price TBD from PDF"
+          },
+          {
+            "name": "Passion Matcha",
+            "slug": "passion-matcha",
+            "price_inr": null,
+            "is_veg": true,
+            "category": "Matcha Drinks",
+            "note": "Price TBD from PDF"
+          }
+        ]
+      }
+    ]
+  },
+  "influencers": {
+    "existing": "Few Instagram influencers (bar-based), mix of organic and reach-out",
+    "monthly_target": "3-4 collaborations per month",
+    "strategy": "Monthly post in exchange for a meal"
+  },
+  "success_metrics": {
+    "month_1": {
+      "gbp_completeness": "100%",
+      "schema_errors": 0,
+      "pages_indexed": "All /menu/[dish] pages",
+      "gbp_posts": 8,
+      "new_reviews": 10,
+      "directory_citations": 8,
+      "blogger_articles": 8
+    },
+    "month_3": {
+      "maps_ranking": "Top 3 for Korean food Koregaon Park",
+      "keyword_rankings": "Page 1 for 5+ dish queries",
+      "gbp_map_views_growth": "+40% vs baseline",
+      "total_reviews": 30
+    },
+    "month_6": {
+      "maps_ranking": "#1 for Korean food Koregaon Park",
+      "reviews": "75+",
+      "average_rating": "4.5+"
+    }
+  }
+}
