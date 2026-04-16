@@ -103,15 +103,26 @@ def sync_photos_from_drive(creds, folder_id: str):
     
     print(f"Syncing photos from Drive folder: {folder_id}...")
     
+    # We use 'shortcutDetails' and better queries to find images anywhere in the hierarchy
     results = service.files().list(
-        q=f"'{folder_id}' in parents and (mimeType = 'image/jpeg' or mimeType = 'image/png')",
-        fields="files(id, name)"
+        q=f"'{folder_id}' in parents",
+        fields="files(id, name, mimeType)"
     ).execute()
     
     items = results.get('files', [])
     downloaded_paths = []
     
     for item in items:
+        # If it's a folder, look inside it too
+        if item['mimeType'] == 'application/vnd.google-apps.folder':
+            print(f"Opening subfolder: {item['name']}...")
+            sub_results = service.files().list(
+                q=f"'{item['id']}' in parents and (mimeType = 'image/jpeg' or mimeType = 'image/png')",
+                fields="files(id, name)"
+            ).execute()
+            items.extend(sub_results.get('files', []))
+            continue
+
         file_path = out_dir / item['name']
         if not file_path.exists():
             print(f"Downloading {item['name']}...")
