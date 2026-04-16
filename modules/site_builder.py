@@ -91,6 +91,36 @@ def build_seo_pages(config: dict, env: Environment):
         with open(OUTPUT_DIR / filename, "w", encoding="utf-8") as f:
             f.write(f"<h1>{title}</h1><p>Content active and optimized.</p>")
 
+def build_sitemap(config: dict):
+    print("Building sitemap.xml...")
+    base_url = os.getenv("SITE_BASE_URL", "").rstrip("/")
+    
+    pages = [
+        "", # index.html
+        "/menu.html",
+        "/matcha-pune.html",
+        "/korean-food-pune-guide.html",
+        "/faq.html"
+    ]
+    
+    from datetime import datetime
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    
+    for page in pages:
+        xml.append('  <url>')
+        xml.append(f'    <loc>{base_url}{page}</loc>')
+        xml.append(f'    <lastmod>{today}</lastmod>')
+        xml.append('    <changefreq>weekly</changefreq>')
+        xml.append('  </url>')
+    
+    xml.append('</urlset>')
+    
+    with open(OUTPUT_DIR / "sitemap.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(xml))
+
 def run():
     print("\nKoicha Site Builder -- Module 2")
     print("=" * 45)
@@ -102,6 +132,7 @@ def run():
     build_index(config, env)
     build_menu_page(config, env)
     build_seo_pages(config, env)
+    build_sitemap(config)
 
     print("\nModule 2 Complete!")
     print(f"Site generated in: {OUTPUT_DIR}/")
