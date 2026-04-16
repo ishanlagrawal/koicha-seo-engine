@@ -8,8 +8,11 @@ Creates a local citation footprint (Backlinks + Keywords).
 import os
 import json
 import requests
+import random
+import io
 from pathlib import Path
 from dotenv import load_dotenv
+from googleapiclient.http import MediaIoBaseDownload
 
 load_dotenv()
 
@@ -60,9 +63,78 @@ def post_to_blogger(title: str, content: str, blog_id: str, image_url: str = Non
     except Exception as e:
         print(f"[ERROR] Error posting to Blogger: {str(e)}")
 
+def delete_redundant_posts(blog_id: str):
+    """Deletes old placeholder posts to keep the blog clean."""
+    import pickle
+    from googleapiclient.discovery import build
+    
+    creds = None
+    if os.path.exists('token.pickle'):
+        with open('token.pickle', 'rb') as token:
+            creds = pickle.load(token)
+    
+    if not creds: return
+    service = build('blogger', 'v3', credentials=creds)
+    
+    try:
+        # List all posts
+        posts_resp = service.posts().list(blogId=blog_id).execute()
+        posts = posts_resp.get('items', [])
+        
+        # We want to keep ONLY the 2 most recent "Humanized" ones (the ones with images or recent timestamps)
+        # For simplicity, we'll keep the top 2 and delete the rest
+        if len(posts) > 2:
+            to_delete = posts[2:]
+            for p in to_delete:
+                print(f"Deleting redundant post: {p['title']}...")
+                service.posts().delete(blogId=blog_id, postId=p['id']).execute()
+            print(f"Cleanup complete. Deleted {len(to_delete)} posts.")
+    except Exception as e:
+        print(f"Cleanup error: {e}")
+
+def sync_photos_from_drive(creds, folder_id: str):
+    """Downloads photos from Google Drive folder to local assets."""
+    from googleapiclient.discovery import build
+    service = build('drive', 'v3', credentials=creds)
+    
+    # Create local folder
+    out_dir = Path("docs/assets/blog")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    
+    print(f"Syncing photos from Drive folder: {folder_id}...")
+    
+    results = service.files().list(
+        q=f"'{folder_id}' in parents and (mimeType = 'image/jpeg' or mimeType = 'image/png')",
+        fields="files(id, name)"
+    ).execute()
+    
+    items = results.get('files', [])
+    downloaded_paths = []
+    
+    for item in items:
+        file_path = out_dir / item['name']
+        if not file_path.exists():
+            print(f"Downloading {item['name']}...")
+            request = service.files().get_media(fileId=item['id'])
+            fh = io.BytesIO()
+            downloader = MediaIoBaseDownload(fh, request)
+            done = False
+            while done is False:
+                status, done = downloader.next_chunk()
+            
+            with open(file_path, "wb") as f:
+                f.write(fh.getvalue())
+        
+        downloaded_paths.append(f"assets/blog/{item['name']}")
+    
+    return downloaded_paths
+
 def generate_article(topic_key: str, config: dict) -> dict:
     """Uses Groq to write a high-SEO article about Koicha."""
     print(f"Generating article for topic: {topic_key}...")
+    
+    brand = config["brand"]
+    location = config["location"]
     
     prompts = {
         "matcha": f"Write a personal, soul-stirring story about a rainy morning in {location['neighborhood']}, Pune. The narrator discovers {brand['name']} and watches a bamboo whisk (Chasen) transform green powder from Shizuoka into silk. Speak about the 'Zen' of the process. Avoid corporate jargon. Use terms like 'Matcha Soul' and 'Mindful Sips'. End with a casual 'Drop by when you need to breathe.' and link to {os.getenv('SITE_BASE_URL')}.",
@@ -102,20 +174,42 @@ def run():
     print("\nKoicha Citation Builder -- Module 6")
     print("=" * 45)
     config = load_config()
+    # 1. Auth and Drive Sync
+    import pickle
+    creds = None
+    if os.path.exists('token.pickle'):
+        with open('token.pickle', 'rb') as token:
+            creds = pickle.load(token)
+            
+    drive_photos = []
+    if os.getenv("DRIVE_FOLDER_ID") and creds:
+        drive_photos = sync_photos_from_drive(creds, os.getenv("DRIVE_FOLDER_ID"))
     
+    # 2. Cleanup
+    if BLOG_ID:
+        delete_redundant_posts(BLOG_ID)
+    
+    # 3. Generate and Post
     ARTICLE_DIR = Path("data/articles")
     ARTICLE_DIR.mkdir(parents=True, exist_ok=True)
     
-    for topic in ["matcha", "food"]:
+    # Get base URL for images
+    base_url = os.getenv("SITE_BASE_URL", "").rstrip("/")
+    
+    topics = ["matcha", "food"]
+    for topic in topics:
         article = generate_article(topic, config)
-        filename = f"{topic}.md"
-        with open(ARTICLE_DIR / filename, "w", encoding="utf-8") as f:
-            f.write(f"# {article['title']}\n\n{article['content']}")
-        print(f"Draft Saved: {ARTICLE_DIR}/{filename}")
         
-        if BLOG_ID:
-            print(f"Posting '{topic}' to Blogger...")
-            post_to_blogger(article['title'], article['content'], BLOG_ID)
+        # Pick a random photo if available
+        image_url = None
+        if drive_photos:
+            # Simple logic: food posts get a random photo, matcha gets a random one too
+            # Future: add tag-based matching
+            photo_path = random.choice(drive_photos)
+            image_url = f"{base_url}/{photo_path}"
+        
+        print(f"Posting '{topic}' to Blogger (Humanized + Real Photo)...")
+        post_to_blogger(article['title'], article['content'], BLOG_ID, image_url)
     
     print("\nModule 6: Initial Citation Blast Complete!")
 
