@@ -214,12 +214,12 @@ def run():
         # Pick a random photo if available
         image_url = None
         if drive_photos:
-            # Simple logic: food posts get a random photo, matcha gets a random one too
-            # Future: add tag-based matching
             photo_path = random.choice(drive_photos)
-            image_url = f"{base_url}/{photo_path}"
+            import time
+            # Adding ?t=... forces the browser to fetch the NEW image immediately
+            image_url = f"{base_url}/{photo_path}?t={int(time.time())}"
         
-        print(f"Posting '{topic}' to Blogger (Humanized + Real Photo)...")
+        print(f"Posting '{topic}' to Blogger (Humanized + Hosted Photo)...")
         post_to_blogger(article['title'], article['content'], BLOG_ID, image_url)
     
     print("\nModule 6: Initial Citation Blast Complete!")
