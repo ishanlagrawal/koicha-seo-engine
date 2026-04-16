@@ -61,7 +61,7 @@ This guide explains how to get the specific IDs needed for the Koicha SEO Engine
 
 **Steps for GitHub Pages:**
 1.  In GSC, click "Add Property" > "URL Prefix".
-2.  Enter `https://ishan-agrawal.github.io/koicha-seo-engine/`.
+2.  Enter `https://ishanlagrawal.github.io/koicha-seo-engine/`.
 3.  Click "Continue".
 4.  Choose "HTML tag" verification method.
 5.  Copy the `<meta>` tag provided.
