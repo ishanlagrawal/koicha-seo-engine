@@ -75,7 +75,7 @@ def poll_for_reviews():
     service = get_gmail_service()
     if not service: return
 
-    query = 'subject:"New review for KOICHA"'
+    query = 'review KOICHA'
     
     try:
         results = service.users().messages().list(userId='me', q=query, maxResults=5).execute()
