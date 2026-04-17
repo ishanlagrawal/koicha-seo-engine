@@ -7,20 +7,28 @@
   <meta name="robots" content="index, follow">
   <meta name="hreflang" content="en-IN">
   <meta name="google-site-verification" content="llT2D9x0XZtXqb3noAcRtEFTZSmY3PTHypGUiV1_TGU" />
-  <title>{% block title %}Koicha — Korean Food & Matcha, Koregaon Park Pune{% endblock %}</title>
+  <title>{% block title %}{{ config.site_name }} — Korean Food & Matcha, Koregaon Park Pune{% endblock %}</title>
 
   <meta name="description"
-    content="{% block meta_description %}Koicha — Authentic Korean Food & Ceremonial Matcha. Limited batches daily. Easy Boba, Lane 7, Koregaon Park, Pune. Open 2 PM–11 PM (Closed Mondays).{% endblock %}">
+    content="{% block meta_description %}{{ config.site_description }}{% endblock %}">
+
+  <link rel="canonical" href="{{ base_url }}/{% block canonical_path %}{{ page_path | default('') }}{% endblock %}">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{% block og_title %}Koicha — Korean Food & Matcha Pune{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}{{ config.site_name }}{% endblock %}">
   <meta property="og:description"
-    content="{% block og_description %}Authentic Korean Food & Ceremonial Grade Matcha in Koregaon Park, Pune. Limited Batches Daily.{% endblock %}">
+    content="{% block og_description %}{{ config.site_description }}{% endblock %}">
   <meta property="og:type" content="restaurant">
-  <meta property="og:url" content="{% block og_url %}{{ base_url }}{% endblock %}">
+  <meta property="og:url" content="{{ base_url }}/{% block og_url %}{{ page_path | default('') }}{% endblock %}">
   <meta property="og:image"
     content="{% block og_image %}{{ base_url }}/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg{% endblock %}">
   <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}{{ config.site_name }}{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}{{ config.site_description }}{% endblock %}">
+  <meta name="twitter:image" content="{{ base_url }}/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg">
 
   <!-- Schema.org JSON-LD -->
   {% block schema %}{% endblock %}
@@ -60,41 +68,54 @@
     </div>
   </header>
 
-  <!-- WhatsApp Floating Button [NEW] -->
-  <a href="https://wa.me/{{ whatsapp_num }}" class="whatsapp-btn" target="_blank" aria-label="Chat with the Artisan">
-    <div class="wa-icon">🍵</div>
-    <span class="wa-text">Order on WhatsApp</span>
-  </a>
-
   <!-- Page Content -->
   <main id="main-content">
     {% block content %}{% endblock %}
   </main>
 
+  <!-- Mobile Conversion Bar (Lane 7 Guidance) -->
+  <div class="mobile-conversion-bar">
+    <a href="{{ config.brand.swiggy_url }}" class="cta-item" target="_blank">
+      <span class="cta-icon">🥡</span>
+      <span class="cta-label">Order</span>
+    </a>
+    <a href="https://wa.me/{{ whatsapp_num }}" class="cta-item" target="_blank">
+      <span class="cta-icon">🍵</span>
+      <span class="cta-label">Chat</span>
+    </a>
+    <a href="{{ config.location.google_maps_url }}" class="cta-item" target="_blank">
+      <span class="cta-icon">📍</span>
+      <span class="cta-label">Lane 7</span>
+    </a>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <strong>Koicha</strong>
-          <p>Korean Food & Ceremonial Matcha<br>Easy Boba, Lane 7, Koregaon Park<br>Pune 411001</p>
-        </div>
-        <div class="footer-hours">
-          <strong>Hours</strong>
-          <p>Tuesday – Sunday<br>2 PM – 11 PM<br><em>Closed Mondays</em></p>
-        </div>
-        <div class="footer-links">
-          <strong>Find Us</strong>
-          <a href="https://www.swiggy.com/direct/brand/771805" target="_blank" rel="noopener">Order on Swiggy</a>
-          <a href="https://www.instagram.com/koicha.india" target="_blank" rel="noopener">@koicha.india</a>
-          <a href="{{ base_url }}/menu.html">Full Menu</a>
-        </div>
+      <div class="logo-group">
+        <span class="logo-text">{{ config.brand.name }}</span>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Koicha. Made with 🍵 in Pune.</p>
-      </div>
+      <div class="footer-line"></div>
+      <p>Artisan Kitchen & Local Matcha Project</p>
+      <p class="footer-bottom">© 2024 {{ config.brand.name }}. Handcrafted in Koregaon Park.</p>
     </div>
   </footer>
+
+  <script>
+    // Reveal Observer for Premium Transitions
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .menu-card, .review-card, .menu-item-card').forEach(el => {
+      el.setAttribute('data-reveal', '');
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 

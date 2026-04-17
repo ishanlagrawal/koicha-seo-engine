@@ -12,15 +12,23 @@
   <meta name="description"
     content="Explore our authentic Korean menu in Koregaon Park, Pune. From Gimbap and Tteokbokki to ceremonial grade Matcha. Limited batches daily.">
 
+  <link rel="canonical" href="https://ishanlagrawal.github.io/koicha-seo-engine/menu.html">
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Koicha — Korean Food & Matcha Pune">
+  <meta property="og:title" content="Koicha">
   <meta property="og:description"
-    content="Authentic Korean Food & Ceremonial Grade Matcha in Koregaon Park, Pune. Limited Batches Daily.">
+    content="Koicha — Authentic Korean Food & Ceremonial Matcha. Limited batches daily. Easy Boba, Lane 7, Koregaon Park, Pune. Open 2 PM–11 PM (Closed Mondays).">
   <meta property="og:type" content="restaurant">
-  <meta property="og:url" content="https://ishanlagrawal.github.io/koicha-seo-engine">
+  <meta property="og:url" content="https://ishanlagrawal.github.io/koicha-seo-engine/menu.html">
   <meta property="og:image"
     content="https://ishanlagrawal.github.io/koicha-seo-engine/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg">
   <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Koicha">
+  <meta name="twitter:description" content="Koicha — Authentic Korean Food & Ceremonial Matcha. Limited batches daily. Easy Boba, Lane 7, Koregaon Park, Pune. Open 2 PM–11 PM (Closed Mondays).">
+  <meta name="twitter:image" content="https://ishanlagrawal.github.io/koicha-seo-engine/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg">
 
   <!-- Schema.org JSON-LD -->
   
@@ -428,12 +436,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- WhatsApp Floating Button [NEW] -->
-  <a href="https://wa.me/917350858583" class="whatsapp-btn" target="_blank" aria-label="Chat with the Artisan">
-    <div class="wa-icon">🍵</div>
-    <span class="wa-text">Order on WhatsApp</span>
-  </a>
 
   <!-- Page Content -->
   <main id="main-content">
@@ -919,30 +921,49 @@
 
   </main>
 
+  <!-- Mobile Conversion Bar (Lane 7 Guidance) -->
+  <div class="mobile-conversion-bar">
+    <a href="https://www.swiggy.com/direct/brand/771805" class="cta-item" target="_blank">
+      <span class="cta-icon">🥡</span>
+      <span class="cta-label">Order</span>
+    </a>
+    <a href="https://wa.me/917350858583" class="cta-item" target="_blank">
+      <span class="cta-icon">🍵</span>
+      <span class="cta-label">Chat</span>
+    </a>
+    <a href="https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5" class="cta-item" target="_blank">
+      <span class="cta-icon">📍</span>
+      <span class="cta-label">Lane 7</span>
+    </a>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <strong>Koicha</strong>
-          <p>Korean Food & Ceremonial Matcha<br>Easy Boba, Lane 7, Koregaon Park<br>Pune 411001</p>
-        </div>
-        <div class="footer-hours">
-          <strong>Hours</strong>
-          <p>Tuesday – Sunday<br>2 PM – 11 PM<br><em>Closed Mondays</em></p>
-        </div>
-        <div class="footer-links">
-          <strong>Find Us</strong>
-          <a href="https://www.swiggy.com/direct/brand/771805" target="_blank" rel="noopener">Order on Swiggy</a>
-          <a href="https://www.instagram.com/koicha.india" target="_blank" rel="noopener">@koicha.india</a>
-          <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu.html">Full Menu</a>
-        </div>
+      <div class="logo-group">
+        <span class="logo-text">Koicha</span>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Koicha. Made with 🍵 in Pune.</p>
-      </div>
+      <div class="footer-line"></div>
+      <p>Artisan Kitchen & Local Matcha Project</p>
+      <p class="footer-bottom">© 2024 Koicha. Handcrafted in Koregaon Park.</p>
     </div>
   </footer>
+
+  <script>
+    // Reveal Observer for Premium Transitions
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .menu-card, .review-card, .menu-item-card').forEach(el => {
+      el.setAttribute('data-reveal', '');
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 

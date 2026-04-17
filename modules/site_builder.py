@@ -41,33 +41,44 @@ def groq_generate(prompt: str) -> str:
     return "The artisan is dreaming... please check back later."
 
 def get_top_reviews():
-    """Fetches the latest 3 reviews from the Master Google Sheet."""
-    print("Fetching social proof from Master Sheet...")
+    """Fetches approved reviews from the Master Google Sheet."""
+    print("Fetching 'Approved' social proof from Master Sheet...")
     try:
-        # We assume Review_Log tab has headers: Date | Name | Rating | Text | Reply | Status
         spreadsheet_id = os.getenv('KOICHA_SHEET_ID')
         service = sheet_utils.sheet_editor.service
+        # Fetching Status from Column F (Date|Name|Rating|Text|Reply|Status)
         result = service.spreadsheets().values().get(
             spreadsheetId=spreadsheet_id,
-            range="Review_Log!A2:E4"
+            range="Review_Log!A2:F100"
         ).execute()
         rows = result.get('values', [])
         
-        reviews = []
+        approved_reviews = []
         for row in rows:
-            if len(row) >= 4:
-                reviews.append({
+            # Check Status column (index 5)
+            if len(row) >= 6 and row[5].strip().lower() == "approved":
+                approved_reviews.append({
                     "name": row[1],
                     "rating": row[2],
                     "text": row[3]
                 })
-        return reviews
+        
+        # Take latest 3 or randomize
+        import random
+        selected = approved_reviews[:5] # Keep it recent
+        random.shuffle(selected)
+        return selected[:3] if selected else get_fallback_reviews()
+
     except Exception as e:
-        print(f"Fallback: Using dummy reviews. ({e})")
-        return [
-            {"name": "Ananya P.", "rating": 5, "text": "The Matcha Gimbap is legendary. Genuine artisan vibes!"},
-            {"name": "Rahul S.", "rating": 5, "text": "Best Korean spot in Pune, Lane 7 just got better."}
-        ]
+        print(f"Cloud Review Fetch failed: {e}")
+        return get_fallback_reviews()
+
+def get_fallback_reviews():
+    return [
+        {"name": "Ananya P.", "rating": 5, "text": "The Matcha Gimbap is legendary. Genuine artisan vibes!"},
+        {"name": "Rahul S.", "rating": 5, "text": "Best Korean spot in Pune, Lane 7 just got better."},
+        {"name": "Priya D.", "rating": 5, "text": "Authentic and soulful. The tteokbokki is perfect."}
+    ]
 
 def build_index(config: dict, env: Environment, reviews: list):
     print("Building index.html (with Social Proof)...")
@@ -83,7 +94,8 @@ def build_index(config: dict, env: Environment, reviews: list):
         config=config,
         reviews=reviews,
         restaurant_schema=restaurant_schema,
-        base_url=os.getenv("SITE_BASE_URL", ""),
+        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        page_path="",
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
     )
@@ -112,7 +124,8 @@ def build_guide_page(config: dict, env: Environment, filename: str, title: str, 
     html = template.render(
         config=config,
         content=styled_content,
-        base_url=os.getenv("SITE_BASE_URL", ""),
+        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        page_path=filename,
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
     )
@@ -132,7 +145,8 @@ def build_menu_page(config: dict, env: Environment):
     html = template.render(
         config=config,
         menu_schema=menu_schema,
-        base_url=os.getenv("SITE_BASE_URL", ""),
+        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        page_path="menu.html",
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
     )
@@ -141,12 +155,25 @@ def build_menu_page(config: dict, env: Environment):
 
 def build_sitemap():
     print("Building sitemap.xml...")
-    base_url = os.getenv("SITE_BASE_URL", "").rstrip("/")
-    pages = ["/", "/menu.html", "/matcha-pune.html", "/korean-food-pune-guide.html", "/faq.html"]
+    base_url = os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/")
+    pages = ["", "menu.html", "matcha-pune.html", "korean-food-pune-guide.html", "faq.html"]
     
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    ]
+    
+    today = datetime.now().strftime("%Y-%m-%d")
     for page in pages:
-        xml.append(f'  <url><loc>{base_url}{page}</loc><lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod><changefreq>weekly</changefreq></url>')
+        # Secure URL join
+        url = f"{base_url}/{page}" if page else base_url
+        xml.append(f'  <url>')
+        xml.append(f'    <loc>{url}</loc>')
+        xml.append(f'    <lastmod>{today}</lastmod>')
+        xml.append(f'    <changefreq>weekly</changefreq>')
+        xml.append(f'    <priority>{"1.0" if not page else "0.8"}</priority>')
+        xml.append(f'  </url>')
+    
     xml.append('</urlset>')
     
     with open(OUTPUT_DIR / "sitemap.xml", "w", encoding="utf-8") as f:

@@ -29,9 +29,17 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
+          set -e
           export PYTHONPATH=$PYTHONPATH:.
-          # Run the Audit Suite
+          echo "🏁 Starting Weekly Strategic Audit..."
+          
+          echo "🔍 Scanning SEO Pulse..."
           python modules/seo_pulse.py
+          
+          echo "🕵️ Running Competitor Spy..."
           python modules/competitor_monitor.py
-          # Optional: Re-build site if rankings change
+          
+          echo "🏗️ Re-building Artisan Site..."
           python modules/site_builder.py
+          
+          echo "✅ Weekly Audit Complete."

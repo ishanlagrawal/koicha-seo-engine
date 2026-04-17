@@ -1,4 +1,6 @@
 {
+  "site_name": "Koicha",
+  "site_description": "Koicha — Authentic Korean Food & Ceremonial Matcha. Limited batches daily. Easy Boba, Lane 7, Koregaon Park, Pune. Open 2 PM–11 PM (Closed Mondays).",
   "brand": {
     "name": "Koicha",
     "tagline": "The Art of Matcha & More",
@@ -21,7 +23,7 @@
     "full_address": "Easy Boba, Lane 7, Koregaon Park, Pune 411001",
     "short_address": "Koregaon Park, Pune",
     "is_permanent": true,
-    "google_maps_url": "TBD"
+    "google_maps_url": "https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5"
   },
   "hours": {
     "monday": "CLOSED",

@@ -23,59 +23,61 @@ def load_config():
         return json.load(f)
 
 def generate_reply(name, review_text, rating, config):
-    print(f"Drafting artisan reply for {name} ({rating} stars)...")
+    """Generates a high-SEO, artisan-grade reply to a review."""
+    print(f"Drafting artisan reply for {name} ({rating}-stars)...")
     
-    brand = config["brand"]["name"]
-    # The 'Artisan' Persona with TONE MIMICRY
-    prompt = f"""
-You are the owner and lead artisan of {brand}, a boutique Korean food & matcha kitchen in Pune.
-Task: Write a short, warm, and authentic reply that feels "Homely" and personal.
+    brand = config['brand']['name']
 
-Customer Name: {name}
-Rating: {rating}-star
-Review: "{review_text}"
+    system_prompt = f"""
+    You are the real owner of {brand} in Koregaon Park, Pune.
+    You care deeply about craft, freshness, and how people feel after eating with you.
+    You are warm, observant, and grounded. Never sound corporate, polished-for-PR, or AI-written.
 
-Voice Guidelines:
-1. Tone Mimicry (CRITICAL): Analyze the reviewer's tone. If they are casual and enthusiastic, be casual and enthusiastic. If they are brief and professional, match that elegance. 
-2. Persona: Maintain your "Artisan" identity (first-person, passionate about ingredients).
-3. If Rating is 1-3: Switch to "Humble Resolution" voice (Sincere apology, ownership of standards).
-4. Language: If they use Hinglish/Hindi phrases, feel free to mirror that warmth in your English response.
+    Write a short reply to this review that feels like it came from a real human who remembers the place, the food, and the guest experience.
 
-Mandatory SEO: Naturally include "Korean food in Pune" or "Artisan Gimbap".
-Length: 35-45 words.
-
-Return ONLY the reply text. No quotes.
+    Rules:
+    - 1 to 3 short sentences.
+    - Use natural spoken English. Light Hinglish is okay only if the guest used it first.
+    - Match the guest’s energy: playful, quiet, excited, elegant, disappointed.
+    - Thank them specifically for what they noticed, not with generic praise.
+    - If the rating is low, acknowledge the issue plainly, take ownership, and invite them back without sounding defensive or scripted.
+    - NEVER use clichés like "we are thrilled", "means a lot", "delighted", "serving customers", or "valued feedback".
+    - Do not force SEO phrases. Only mention "Korean food in Pune", "matcha", "gimbap", or "Lane 7" if it fits naturally.
+    - No emojis unless the original review uses them.
+```python
     """
+    
+    user_prompt = f"Name: {name}\nRating: {rating}\nText: {review_text}"
     
     if not GROQ_API_KEY:
         return "Intelligence engine pending setup."
-        
-    url = "https://api.groq.com/openai/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json"
-    }
+
+    # Using higher-tier model for Phase 2
     data = {
-        "model": "llama-3.1-8b-instant",
-        "messages": [{"role": "user", "content": prompt}]
+        "model": "llama-3.3-70b-versatile",
+        "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
+        "temperature": 0.7
     }
     
-    import time
-    max_retries = 3
-    for attempt in range(max_retries):
-        try:
-            response = requests.post(url, headers=headers, json=data, timeout=15)
-            if response.status_code == 200:
-                return response.json()["choices"][0]["message"]["content"].strip()
-            else:
-                print(f"[RETRY {attempt+1}] Groq returned status {response.status_code}")
-        except Exception as e:
-            print(f"[RETRY {attempt+1}] Connection Error: {e}")
-        
-        if attempt < max_retries - 1:
-            time.sleep(2) 
+    import requests
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"}
+    
+    try:
+        response = requests.post(url, headers=headers, json=data, timeout=15)
+        if response.status_code == 200:
+            reply = response.json()["choices"][0]["message"]["content"].strip()
             
-    return "The artisan brain is resting. Please try again in a moment."
+            # QC Layer: Strip out common AI signatures
+            banned = ["excited to hear", "means the world", "valued customer", "delighted to"]
+            for word in banned:
+                if word in reply.lower():
+                    reply = reply.split(".")[0] + "."
+            return reply
+        return "The artisan brain is resting. Please try again."
+    except Exception as e:
+        print(f"Reply Generation Error: {e}")
+        return "The artisan is dreaming..."
 
 def send_telegram_draft(name, review_text, rating, reply_text, review_num=None):
     """Sends the context (with stars and #) and the reply."""

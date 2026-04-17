@@ -221,7 +221,7 @@ def run():
     ARTICLE_DIR.mkdir(parents=True, exist_ok=True)
     
     # Get base URL for images
-    base_url = os.getenv("SITE_BASE_URL", "").rstrip("/")
+    base_url = os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/")
     
     topics = ["matcha", "food"]
     for topic in topics:
@@ -230,10 +230,16 @@ def run():
         # Pick a random photo if available
         image_url = None
         if drive_photos:
-            photo_path = random.choice(drive_photos)
-            import time
-            # Adding ?t=... forces the browser to fetch the NEW image immediately
-            image_url = f"{base_url}/{photo_path}?t={int(time.time())}"
+            photo_rel_path = random.choice(drive_photos)
+            
+            # Verify file exists in public docs folder
+            full_local_path = Path("docs") / photo_rel_path
+            if full_local_path.exists():
+                import time
+                image_url = f"{base_url}/{photo_rel_path}?t={int(time.time())}"
+                print(f"  [IMAGE] Bridged to cloud: {image_url}")
+            else:
+                print(f"  [WARN] Photo found in Drive but not yet synced to {full_local_path}")
         
         print(f"Posting '{topic}' to Blogger (Humanized + Hosted Photo)...")
         post_to_blogger(article['title'], article['content'], BLOG_ID, image_url)

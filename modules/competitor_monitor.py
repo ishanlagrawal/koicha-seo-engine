@@ -16,20 +16,28 @@ COMPETITORS = {
 }
 
 def search_snippets(query):
-    """Fetches top snippets from Google Search."""
+    """Fetches top snippets from Google Search with multi-selector fallback."""
     print(f"  [SPY] Searching signals for: '{query}'...")
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     url = f"https://www.google.com/search?q={query.replace(' ', '+')}"
     
     try:
-        response = requests.get(url, headers=headers)
-        if response.status_code != 200: return []
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code != 200: 
+            print(f"  [WARN] Google blocked or error {response.status_code}")
+            return []
         
         soup = BeautifulSoup(response.text, 'html.parser')
-        snippets = [s.get_text() for s in soup.find_all('div', class_='VwiC3b')]
-        return snippets[:5]
+        # Google changes classes often; check multiple likely containers
+        snippets = []
+        for selector in ['div.VwiC3b', 'div.BNeawe.s3Eb9c.AP7Wnd', 'span.hgKElc']:
+            found = [s.get_text() for s in soup.select(selector)]
+            if found:
+                snippets.extend(found)
+        
+        return list(set(snippets))[:5]
     except Exception as e:
         print(f"  [FAIL] Search error: {e}")
         return []
@@ -37,49 +45,50 @@ def search_snippets(query):
 import google.generativeai as genai
 
 def analyze_intelligence(name, snippets):
-    """Uses the official Google AI library to extract data from snippets."""
+    """Uses Gemini 1.5 Flash with robust JSON extraction."""
     print(f"  [AI] Analyzing intelligence for {name}...")
     
+    # Default fallback
+    fallback = {
+        "avg_price_gimbap": 300,
+        "rating": 4.0,
+        "weakness": "Direct observation needed (Parser Lag).",
+        "strategy": "Maintain artisan exclusivity via limited batches."
+    }
+
+    if not snippets:
+        return fallback
+
     try:
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key: return fallback
+
+        genai.configure(api_key=api_key)
         model = genai.GenerativeModel('gemini-1.5-flash')
         
         prompt = f"""
-        Analyze these search snippets for the competitor '{name}' (a Korean restaurant in Pune).
-        EXTRACT ONLY STRUCTURED JSON:
+        Analyze these search snippets for competitor '{name}' in Pune.
+        Extract JSON ONLY. No markdown.
         {{
-          "avg_price_gimbap": (integer, estimate from text),
-          "rating": (float, e.g. 4.2),
-          "weakness": "one sentence on recent complaints or menu gaps found in text",
-          "strategy": "one sentence strategic advice for Koicha to beat them"
+          "avg_price_gimbap": int,
+          "rating": float,
+          "weakness": "short sentence",
+          "strategy": "short tactical advice for Koicha"
         }}
-        
         SNIPPETS: {snippets}
         """
         
         response = model.generate_content(prompt)
-        text = response.text
+        text = response.text.strip()
         
-        # Extract JSON from Markdown
-        if "```json" in text:
-            text = text.split("```json")[1].split("```")[0].strip()
-        elif "{" in text:
-             text = "{" + text.split("{", 1)[1].rsplit("}", 1)[0] + "}"
-        return json.loads(text.strip())
+        # Clean Markdown characters
+        if "```" in text:
+            text = text.split("```")[1].replace("json", "").strip()
+        
+        return json.loads(text)
     except Exception as e:
-        print(f"  [ERROR] AI Analysis failed for {name}: {e}")
-        return {
-            "avg_price_gimbap": 300,
-            "rating": 4.0,
-            "weakness": "Data unavailable; manual check recommended.",
-            "strategy": "Maintenance mode."
-        }
-        return {
-            "avg_price_gimbap": 300,
-            "rating": 4.0,
-            "weakness": "Data unavailable; manual check recommended.",
-            "strategy": "Maintenance mode."
-        }
+        print(f"  [AI FAIL] Intelligent Parse failed: {e}")
+        return fallback
 
 def run():
     print("\nKoicha Intelligence Engine -- Real-Time Module 5")
