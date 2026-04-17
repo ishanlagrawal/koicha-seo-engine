@@ -46,6 +46,12 @@ def parse_review_email(payload):
         if len(parts) > 1:
             name = parts[1].split("\n")[0].strip().split(" ")[0].title()
 
+    # Fallback name parsing for "Casa left a review" style
+    if name == "Valued Guest" and "left a review" in text_content.lower():
+         parts = text_content.lower().split("left a review")
+         prefix = parts[0].strip().split("\n")[-1].strip().split(" ")[-1]
+         if prefix: name = prefix.title()
+
     rating = 5
     for i in range(1, 6):
         if f"{i}-star" in text_content.lower() or f"{i} star" in text_content.lower():
@@ -75,14 +81,15 @@ def poll_for_reviews():
     service = get_gmail_service()
     if not service: return
 
-    query = 'review KOICHA'
+    # Precise query for Google Business Profile review notifications
+    query = 'subject:"left a review for KOICHA"'
     
     try:
-        results = service.users().messages().list(userId='me', q=query, maxResults=5).execute()
+        results = service.users().messages().list(userId='me', q=query, maxResults=10).execute()
         messages = results.get('messages', [])
 
         if not messages:
-            print("No new review emails found.")
+            print(f"No review emails found matching query: {query}")
             return
 
         processed_data = load_processed_data()
@@ -98,6 +105,7 @@ def poll_for_reviews():
             if review_data:
                 unique_key = (review_data['name'], review_data['text'])
                 if unique_key in processed_data:
+                    print(f"[SKIP] Already processed: {review_data['name']}")
                     continue
 
                 current_total += 1
