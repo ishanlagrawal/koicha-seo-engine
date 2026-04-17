@@ -2,7 +2,7 @@ name: Koicha Weekly SEO Audit
 
 on:
   schedule:
-    - cron: '0 9 * * 1' # Every Monday at 9:00 AM UTC
+    - cron: '0 0 * * *' # Daily at Midnight UTC
   workflow_dispatch: # Allows manual trigger
 
 jobs:
