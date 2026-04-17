@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Koicha | A Quiet Ritual of Flavor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f5f3ee",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-surface": "#1b1c19",
+                        "on-primary": "#ffffff",
+                        "outline": "#75786f",
+                        "on-secondary-container": "#78613c",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#fddeb0",
+                        "on-primary-container": "#ddebcc",
+                        "surface": "#fbf9f4",
+                        "background": "#fbf9f4",
+                        "surface-container-high": "#eae8e3",
+                        "tertiary-fixed": "#e1e3de",
+                        "tertiary": "#4d504d",
+                        "surface-container": "#f0eee9",
+                        "on-tertiary-container": "#e5e7e2",
+                        "primary-container": "#5e6b52",
+                        "primary-fixed": "#d9e7c8",
+                        "on-secondary-fixed-variant": "#584321",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-tertiary-fixed-variant": "#444844",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#56624a",
+                        "on-background": "#1b1c19",
+                        "tertiary-container": "#656864",
+                        "primary": "#46533b",
+                        "outline-variant": "#c5c8bd",
+                        "surface-variant": "#e4e2dd",
+                        "secondary-container": "#fddeb0",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#bdcbad",
+                        "on-surface-variant": "#454840",
+                        "on-primary-fixed": "#141f0b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#e0c296",
+                        "secondary": "#715b37",
+                        "inverse-surface": "#30312e",
+                        "inverse-primary": "#bdcbad",
+                        "on-primary-fixed-variant": "#3e4a34",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#281900",
+                        "tertiary-fixed-dim": "#c5c7c3",
+                        "surface-dim": "#dbdad5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "on-tertiary-fixed": "#191c1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto bg-[#fbf9f4]/90 dark:bg-[#1a1a1a]/90 backdrop-blur-md z-50">
+<div class="font-serif text-2xl font-semibold tracking-tighter text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-serif text-lg tracking-tight text-[#46533b] dark:text-[#f2f4ef] border-b-2 border-[#715b37] pb-1" href="#">Our Story</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">The Matcha</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Menu</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Experience</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Find Us</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-md font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-all duration-500">
+            Shop Now
+        </button>
+</nav>
+<!-- Cinematic Hero -->
+<section class="relative h-[884px] w-full overflow-hidden flex flex-col justify-end px-6 pb-20 pt-24">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" data-alt="Vertical high-angle shot of a minimalist stone tea table with a single bowl of frothy green ceremonial matcha and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjI6ylzhCDHXRFeMwe_gAsbI7XRE7cu2-EE5SzplKcHnIKeholuzPOFxrPtHIPpl1kMsMkIJojStfh_GUkyOeGU-eAVeyAU0EWW94ii1j36meljvmy_nTAZParq7-d_Fc_BV6i33K17qmDA1uShjN38DFlaABzx5qkdr_C4EJgP6_WdTsPiu-zovcBsLCynFaqbOPMziWolJhyeNUzXmalvedVW6-cSVGK4StvUcpVqBYKTHtvZgThc2kyUOq9BeO_HuUrESMEa4jo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-8 max-w-lg">
+<div class="space-y-2">
+<p class="font-label text-xs text-white/80 uppercase tracking-[0.3em]">The Art of the Pour</p>
+<h1 class="font-headline text-5xl md:text-7xl text-white leading-[1.1] tracking-tight">A Quiet Ritual of Flavor</h1>
+</div>
+<div class="flex flex-col gap-3">
+<a class="bg-surface-container-lowest text-primary py-4 text-center font-label text-xs uppercase tracking-widest font-semibold rounded-lg shadow-sm" href="#menu">
+                    The Menu
+                </a>
+<a class="bg-transparent border border-white/30 text-white py-4 text-center font-label text-xs uppercase tracking-widest backdrop-blur-md rounded-lg" href="#visit">
+                    Visit Us
+                </a>
+</div>
+</div>
+</section>
+<!-- Editorial Brand Story -->
+<section class="py-32 px-6 bg-surface relative overflow-hidden">
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-1 hidden md:flex justify-center">
+<span class="vertical-text font-label text-[10px] uppercase tracking-[0.5em] text-outline opacity-40">SINCE 2024 — SEOUL ARTISAN ATELIER</span>
+</div>
+<div class="md:col-span-5 space-y-8">
+<div class="space-y-4">
+<h2 class="font-headline text-3xl text-primary leading-tight">Crafted in the space between heartbeats.</h2>
+<p class="font-body text-lg leading-relaxed text-on-surface-variant">
+                        Koicha is not just a destination; it is a dedicated pause. We source our ceremonial-grade powders from heritage farms in Uji, processing them with the precision of a modern laboratory and the soul of a century-old tea house.
+                    </p>
+</div>
+<div class="pt-4">
+<a class="text-primary font-label text-xs uppercase tracking-widest border-b border-secondary pb-1 hover:text-secondary transition-all" href="#">Explore Provenance</a>
+</div>
+</div>
+<div class="md:col-span-6 relative group">
+<div class="aspect-[4/5] overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms] ease-out" data-alt="Artisan hands whisking matcha in a dark ceramic bowl with a traditional bamboo whisk, natural light hitting the green foam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-g88lPAXm8jTuWlUtFFosggdNoITeV5c70TLqcJm_5mhHtGLdsdW1-xhb9YXnsFRaGZo0CvYiQreC-RHV8JryeMF2caWAjnyaVkCUO4TRvbBYFKzc-uVNbNPGtlk7--iS5P4viXcjA-YZ5HDAQbkjJ5PoNpVEkjkTk6frzogjwWfWZoMCueEcT6cPvi8UzRIdH4c6XnYhfcASiuH_gmWQ1C7MhWCVZxpzRfqTZT9Df6mpNtHbdWQ9nKR5hPDbwKa_vItNTZefWY-G"/>
+</div>
+<!-- Asymmetrical floating element -->
+<div class="absolute -bottom-8 -left-8 bg-surface-container-low p-8 hidden md:block max-w-[200px]">
+<p class="font-headline italic text-secondary text-lg">"The perfect whisk is a dance of geometry and intent."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Highlights Bento-ish Grid -->
+<section class="py-24 bg-surface-container-low" id="menu">
+<div class="px-6 mb-12">
+<h3 class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4">The Selection</h3>
+<h2 class="font-headline text-4xl text-primary">Signature Moments</h2>
+</div>
+<div class="flex overflow-x-auto gap-6 px-6 pb-12 no-scrollbar snap-x">
+<!-- Card 1 -->
+<div class="min-w-[85vw] md:min-w-[400px] snap-center bg-surface-container-lowest rounded-xl p-4 shadow-[0_40px_60px_-15px_rgba(27,28,25,0.05)]">
+<div class="aspect-square rounded-lg overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Layers of vibrant green matcha and creamy milk in a minimalist glass with a single square ice cube" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAplAysCquzuQnHhHEBOJhYQJkIFSOr_Hl2u4VlluVabs9laVi_Kk9en1_2Qp6qcxUMLFDaiZPleu85R0KQSmqwvWGmW7bv7-IABI321f38QGYhR5FzAm8zqgSBESecWa414z4xJUi1LKIYUGES2_MkOjRO1xlPELh288fpg2KCDuSecun-Ga-vJK19DVX_HcVW4d7gR5gY6buuG1red_tAwAYdn355WOddMcDvK7ToJLeOW2dxE01oqUs5Y35bSwl2bTobFMwNGnFy"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-baseline">
+<h4 class="font-headline text-xl text-primary">Ceremonial Cloud</h4>
+<span class="font-body text-sm text-outline">₹450</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Cold-whisked Uji matcha layered over Madagascar vanilla cream.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[85vw] md:min-w-[400px] snap-center bg-surface-container-lowest rounded-xl p-4 shadow-[0_40px_60px_-15px_rgba(27,28,25,0.05)]">
+<div class="aspect-square rounded-lg overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="A slice of dark, dense matcha cheesecake on a textured grey ceramic plate with a gold dessert fork" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgvhauYI1R0375Xj77vpTBIbpkqM3crtOJuBTitc5bTJtTHzCGpU-WzqGsYbv2rngclJjVa3ShT0Pfmxkjd40gsg3dPrOciY-L4BOQkH2LMAZ5BpKb0a-Y98Qbyh7LDO3h4nRQEHHodlQaUy5ykS0A33iur3fF0XLg8NrZoRSMJpnKOvUzwp-WYkNSGTAejCUXYYSBmFDXY6ohFBCWcIGOzu_HMFBpC4rl9e_KPN7R7s5oQXTjka5eZIrRa6scMrP_vYEsscmhfHLU"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-baseline">
+<h4 class="font-headline text-xl text-primary">The 7th Layer</h4>
+<span class="font-body text-sm text-outline">₹520</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Burnt-top cheesecake infused with deep vegetal notes and miso caramel.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[85vw] md:min-w-[400px] snap-center bg-surface-container-lowest rounded-xl p-4 shadow-[0_40px_60px_-15px_rgba(27,28,25,0.05)]">
+<div class="aspect-square rounded-lg overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="Traditional hot matcha whisked to a thick foam in a rustic black tea bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcCtdaKmjiNcCC-sipaV2AkmJBv-Y3FIIf3lNoxpyFLwPbL0HxvGsuRVVOp7nlHebj-HROm3j0ffbeW4mbG3voTCWqfawpO2hDVL6Nq020mIxsH7yN0yeRWzvSckIsXrbWBYe_vE8tXZ4lqAmwZ2rtP_r-Re9TeOuFBDLYHbSjoLv1yo_patBFLEbgpzn_NGM0FTLM6yT4nFYTGPeLLcti4KWSDActVbSPoRo5ULDGOhY9kEPLW-884lPBbiANunXnXxkNkDvk2SNW"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-baseline">
+<h4 class="font-headline text-xl text-primary">Heritage Hot</h4>
+<span class="font-body text-sm text-outline">₹380</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">The purist's choice. 80°C water meets stone-ground Koicha grade powder.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Quote -->
+<section class="py-24 px-6 bg-surface-container text-center">
+<div class="max-w-2xl mx-auto space-y-8">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-headline text-2xl italic leading-relaxed text-primary">
+                "In a city that never stops moving, Koicha is the silence I've been searching for. The matcha is transcendent, the atmosphere is meditative."
+            </blockquote>
+<div class="pt-4">
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Editorial Review — The Minimalist Journal</p>
+</div>
+</div>
+</section>
+<!-- First Time? Path Cards -->
+<section class="py-24 px-6 bg-surface">
+<div class="max-w-screen-xl mx-auto">
+<h2 class="font-headline text-3xl text-primary mb-12 text-center md:text-left">First Time?</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between border-b-2 border-transparent hover:border-secondary transition-all group">
+<div class="space-y-4">
+<h3 class="font-headline text-xl">The Purist Path</h3>
+<p class="font-body text-sm text-on-surface-variant">Start with our Heritage Hot. Pure, unadulterated, and served at the exact temperature for optimal umami.</p>
+</div>
+<span class="material-symbols-outlined text-secondary pt-8 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between border-b-2 border-transparent hover:border-secondary transition-all group">
+<div class="space-y-4">
+<h3 class="font-headline text-xl">The Modernist Path</h3>
+<p class="font-body text-sm text-on-surface-variant">Experience our layered iced lattes. A perfect balance of sweetness and bitter depth.</p>
+</div>
+<span class="material-symbols-outlined text-secondary pt-8 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between border-b-2 border-transparent hover:border-secondary transition-all group">
+<div class="space-y-4">
+<h3 class="font-headline text-xl">The Culinary Path</h3>
+<p class="font-body text-sm text-on-surface-variant">Matcha reimagined in textures of cream, sponge, and sugar. For the epicurean heart.</p>
+</div>
+<span class="material-symbols-outlined text-secondary pt-8 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visit Us Section -->
+<section class="py-24 px-6 bg-[#F2F4EF]" id="visit">
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div>
+<h3 class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4">Location</h3>
+<h2 class="font-headline text-4xl text-primary mb-6">Come find your stillness.</h2>
+<p class="font-body text-lg text-on-surface-variant">
+                        Lane 7, Koregaon Park. <br/>
+                        Pune, India 411001
+                    </p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-label text-xs uppercase tracking-widest text-outline">Weekdays</span>
+<span class="font-body text-sm text-primary">08:00 AM — 10:00 PM</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-2">
+<span class="font-label text-xs uppercase tracking-widest text-outline">Weekends</span>
+<span class="font-body text-sm text-primary">07:00 AM — 11:00 PM</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a class="flex-1 bg-primary text-on-primary py-4 px-6 rounded-lg flex items-center justify-center gap-2 font-label text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">near_me</span>
+                        Directions
+                    </a>
+<a class="flex-1 bg-white border border-outline-variant/30 py-4 px-6 rounded-lg flex items-center justify-center gap-2 font-label text-xs uppercase tracking-widest text-primary" href="#">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+                        WhatsApp Us
+                    </a>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Interior of a minimalist modern tea shop with warm wood accents, soft linen curtains, and natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn5wc3iWkf_sbncxxZ_0UfztWMHogfhjVqOAFJPQ9BAkJhus82amDEEQSmVEFnUo4zOAjyA1fWrHKjKX4-f5ScJ-4gdttNQrjMY6DjXRJXY8DNIeHGEw0qCgPzPMGZtsAmK1Nb5iSPE6zhx-FFKwiYRvfQtkXD8H5TX6ArMIIkyAlXB12QN-7yUNmqphzvgFyC43l8oR14YgbMm8XmKlrtHCPGtZUMkK4KwaSoNyxvTxs_7oE_j6bbE0IY4ycNzrBpFLUDv2L-LFFy"/>
+</div>
+<!-- Mini floating card -->
+<div class="absolute -top-6 -right-6 bg-surface-container-lowest p-6 rounded-xl shadow-lg hidden md:block max-w-[180px]">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-green-600 animate-pulse"></span>
+<span class="font-label text-[10px] uppercase tracking-wider text-outline">Currently</span>
+</div>
+<p class="font-headline text-lg text-primary">Quiet &amp; Cozy</p>
+<p class="font-body text-[10px] text-on-surface-variant">Ideal for reading or intimate conversation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#f0eee9] dark:bg-[#151613] py-20 px-6">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="font-serif text-xl text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed max-w-[200px]">
+                    The Modern Archivist of Korean tea traditions in a global landscape.
+                </p>
+</div>
+<div class="space-y-4">
+<h5 class="font-label text-xs uppercase tracking-widest text-secondary">Discover</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Provenance</a>
+<a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Wholesale</a>
+<a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Sustainability</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h5 class="font-label text-xs uppercase tracking-widest text-secondary">Legal</h5>
+<nav class="flex flex-col gap-2">
+<a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Privacy</a>
+<a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Press</a>
+</nav>
+</div>
+<div class="space-y-6">
+<h5 class="font-label text-xs uppercase tracking-widest text-secondary">Journal</h5>
+<div class="flex gap-2">
+<input class="bg-transparent border-b border-outline-variant/30 focus:border-secondary focus:ring-0 transition-colors w-full font-label text-[10px] tracking-widest py-2" placeholder="YOUR EMAIL" type="email"/>
+<button class="material-symbols-outlined text-primary">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-sans text-xs uppercase tracking-widest text-on-surface-variant">© 2024 Koicha Artisan Atelier. Lane 7, Pune.</p>
+<div class="flex gap-6">
+<a class="font-sans text-xs uppercase tracking-widest text-on-surface-variant hover:text-secondary" href="#">Instagram</a>
+<a class="font-sans text-xs uppercase tracking-widest text-on-surface-variant hover:text-secondary" href="#">Vimeo</a>
+</div>
+</div>
+</footer>
+</body></html>

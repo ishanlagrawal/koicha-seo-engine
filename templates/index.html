@@ -7,93 +7,158 @@
 {% endblock %}
 
 {% block content %}
-<section class="hero-home">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <span class="badge">Artisan Korean Food & Matcha</span>
-      <h1>Artisan Spirit,<br>Hand-Rolled Daily.</h1>
-      <p class="hero-description">Experience ceremonial grade matcha and small-batch Korean street food in the heart of Koregaon Park. Every dish is a story of craft and culture.</p>
-      <div class="hero-actions">
-        <a href="{{ base_url }}/menu.html" class="btn btn-primary btn-large">View Selection</a>
-        <a href="https://wa.me/{{ whatsapp_num }}" class="btn btn-secondary btn-large">Chat with Artisan</a>
-      </div>
-    </div>
-    <div class="hero-image-container">
-      <div class="image-box">
-        <img src="{{ base_url }}/assets/blog/artisan_gimbap.png" alt="Artisan Koicha Gimbap close-up" class="hero-img">
+<!-- Hero: The Cinematic Entry -->
+<section class="hero-home" style="position: relative; height: 90vh; display: flex; align-items: center; overflow: hidden; padding: 0; background: #000;">
+  <div style="position: absolute; inset: 0; z-index: 1;">
+    <img src="{{ base_url }}/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg" 
+         alt="Cinematic Matcha Ritual" 
+         style="width: 100%; height: 100%; object-cover; brightness: 0.7;">
+  </div>
+  <div class="container" style="position: relative; z-index: 2; color: #fff;">
+    <div style="max-width: 800px;">
+      <span class="label-md" style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">Artisan Korean Atelier</span>
+      <h1 style="margin-bottom: 2rem;">A Quiet Ritual<br>of Flavor.</h1>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.4rem; margin-bottom: 3.5rem; max-width: 600px;">
+        Experience the precise art of Korean cuisine and ceremonial tea in the heart of Koregaon Park. A sanctuary for the senses.
+      </p>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="{{ config.location.google_maps_url }}" class="btn btn-primary">Visit Atelier</a>
+        <a href="{{ base_url }}/menu.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">The Menu</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="reviews-section">
+<!-- Brand Story: The Modern Archivist -->
+<section style="background: var(--surface);">
+  <div class="container" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 8rem; align-items: center;">
+    <div data-reveal>
+      <span class="label-md" style="margin-bottom: 1.5rem;">The Provenance</span>
+      <h2 style="margin-bottom: 2.5rem;">Rooted in Tradition,<br>Refined in Pune.</h2>
+      <div style="color: var(--on-surface-variant); line-height: 1.8; font-size: 1.15rem;">
+        <p style="margin-bottom: 2rem;">
+          Koicha was born from a desire to translate the meditative pace of a Korean tea ceremony into a modern culinary language. We believe that true luxury lies in the space between the notes—the silence that accompanies a perfectly poured bowl of matcha.
+        </p>
+        <p>
+          In our Lane 7 atelier, every ingredient is curated with an archivist’s precision, from hand-rolled gimbap to ceremonial grade tea sourced directly from Shizuoka, Japan.
+        </p>
+      </div>
+      <div style="margin-top: 4rem;">
+        <a href="{{ base_url }}/korean-food-pune-guide.html" class="label-md" style="text-decoration: none; display: flex; items-center; gap: 1rem; color: var(--primary);">
+          Explore Our Philosophy <span style="width: 40px; height: 1px; background: var(--secondary); margin-top: 0.5rem;"></span>
+        </a>
+      </div>
+    </div>
+    <div style="position: relative;" data-reveal>
+      <div style="position: absolute; inset: -20px; background: var(--surface-container-low); transform: translate(40px, 40px); z-index: 1;"></div>
+      <img src="{{ base_url }}/assets/blog/artisan_gimbap.png" 
+           alt="Hand-Rolled Gimbap Art" 
+           style="position: relative; z-index: 2; width: 100%; border-radius: 2px; filter: contrast(1.05);">
+    </div>
+  </div>
+</section>
+
+<!-- Signature Highlights: Artisan Tray -->
+<section style="background: var(--surface-container-low);">
   <div class="container">
-    <div class="section-header center">
-      <span class="badge">Loved by Pune</span>
-      <h2>Guest Experiences</h2>
-    </div>
-    <div class="reviews-grid">
-      {% for review in reviews %}
-      <div class="review-card">
-        <div class="rating">{"⭐" * review.rating}</div>
-        <p class="review-text">"{{ review.text }}"</p>
-        <div class="review-author">— {{ review.name }}</div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6rem;">
+      <div data-reveal>
+        <span class="label-md" style="margin-bottom: 1rem;">Our Specialties</span>
+        <h2>Artisan Highlights</h2>
       </div>
-      {% endfor %}
+      <p style="max-width: 300px; font-size: 0.95rem; opacity: 0.8;" data-reveal>A seasonal selection of our most requested pairings, crafted in small batches.</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem;">
+      <!-- Highlight 1 -->
+      <div class="ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; transition: var(--transition);" data-reveal>
+        <div style="aspect-ratio: 1; background: #fdfaf7; margin-bottom: 2rem; overflow: hidden;">
+          <img src="{{ base_url }}/static/images/matcha-pune-ceremony.jpg" alt="Matcha Ritual" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.5rem;">Ceremonial Matcha</h3>
+          <span class="label-md" style="font-size: 0.6rem;">Shizuoka</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6;">Whisked to order. Pure, vegetal, and grounded. The heartbeat of our atelier.</p>
+      </div>
+
+      <!-- Highlight 2 (Asymmetrical offset) -->
+      <div class="ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; margin-top: 4rem; transition: var(--transition);" data-reveal>
+        <div style="aspect-ratio: 1; background: #fdfaf7; margin-bottom: 2rem; overflow: hidden;">
+          <img src="{{ base_url }}/assets/blog/artisan_gimbap.png" alt="Gimbap Select" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.5rem;">Micro-Batch Gimbap</h3>
+          <span class="label-md" style="font-size: 0.6rem;">Hand-Rolled</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6;">Precision-rolled with seasoned rice and curated fillings. A tactile journey of flavor.</p>
+      </div>
+
+      <!-- Highlight 3 -->
+      <div class="ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; transition: var(--transition);" data-reveal>
+        <div style="aspect-ratio: 1; background: #fdfaf7; margin-bottom: 2rem; overflow: hidden;">
+          <img src="{{ base_url }}/static/images/yangnyeom-chicken-pune.jpg" alt="Yangnyeom Chicken" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.5rem;">Soulful Spices</h3>
+          <span class="label-md" style="font-size: 0.6rem;">Artisan Spice</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.6;">Crisp textures and deep fermented glazes. Classic flavors met with modern craft.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="features">
-  <div class="container features-grid">
-    <div class="feature">
-      <div class="feature-icon">🍵</div>
-      <h3>Ceremonial Matcha</h3>
-      <p>Sourced from Shizuoka, Japan. Hand-whisked to order for the purest 'Zen' in Pune.</p>
+<!-- Social Proof: The Quiet Voice -->
+<section style="background: var(--surface);">
+  <div class="container" style="text-align: center; max-width: 900px;" data-reveal>
+    <div style="font-family: var(--font-display); font-size: 4rem; color: var(--secondary); margin-bottom: 2rem; opacity: 0.3;">“</div>
+    <blockquote style="font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: var(--primary); line-height: 1.4; margin-bottom: 3rem;">
+      {% if reviews %}
+        "{{ reviews[0].text }}"
+      {% else %}
+        "Koicha isn't just a kitchen; it's a sensory pause. The attention to detail in their ritual is unparalleled."
+      {% endif %}
+    </blockquote>
+    <cite class="label-md">— {% if reviews %}{{ reviews[0].name }}{% else %}Editorial, The Modern Archivist{% endif %}</cite>
+  </div>
+</section>
+
+<!-- Visit: The Atelier Cutout -->
+<section style="background: var(--surface-container-high); overflow: hidden;">
+  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center;">
+    <div data-reveal>
+      <span class="label-md" style="margin-bottom: 1.5rem;">Location</span>
+      <h2 style="margin-bottom: 3rem;">Visit the Atelier</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Address</h4>
+          <p style="font-size: 0.95rem; opacity: 0.8;">{{ config.location.street }}, {{ config.location.neighborhood }},<br>{{ config.location.city }}, {{ config.location.postal_code }}</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Contact</h4>
+          <p style="font-size: 0.95rem; opacity: 0.8;">{{ whatsapp_num }}<br>{{ config.brand.instagram }}</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">Hours</h4>
+          <p style="font-size: 0.95rem; opacity: 0.8;">{{ config.hours.display }}</p>
+        </div>
+      </div>
+      <div style="margin-top: 4rem;">
+        <a href="{{ config.location.google_maps_url }}" class="btn btn-primary">Get Directions</a>
+      </div>
     </div>
-    <div class="feature">
-      <div class="feature-icon">🥡</div>
-      <h3>Micro-Batch Gimbap</h3>
-      <p>Not mass-produced. Hand-rolled in tiny batches to ensure every grain of rice is perfect.</p>
+    <div style="display: flex; justify-content: center;" data-reveal>
+      <div style="width: 500px; height: 500px; border-radius: 50%; background: var(--surface-container); border: 20px solid var(--surface); overflow: hidden; position: relative;">
+        <!-- Abstract Map Representation or Actual Image if available -->
+        <img src="{{ base_url }}/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg" 
+             alt="Find us in Lane 7" 
+             style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6; grayscale: 1;">
+        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+          <div style="width: 16px; height: 16px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 20px var(--secondary);"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-{% endblock %}
-
-{% block extra_head %}
-<style>
-.hero-home { padding: 8rem 0; background-color: var(--white); overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
-.badge { display: inline-block; padding: 6px 16px; background-color: rgba(58, 157, 143, 0.1); color: var(--primary); border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; }
-.hero-text h1 { font-size: 4rem; margin-bottom: 1.5rem; }
-.hero-description { font-size: 1.25rem; color: var(--text-light); margin-bottom: 3rem; max-width: 550px; }
-.hero-actions { display: flex; gap: 1rem; }
-
-.hero-img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 80px rgba(0,0,0,0.1); }
-
-.features { padding: 6rem 0; background-color: var(--secondary); }
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-.feature { background: var(--white); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow); }
-.feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
-.feature h3 { font-family: var(--font-main); font-size: 1.5rem; margin-bottom: 1rem; }
-
-.location-section { padding: 8rem 0; background-color: var(--white); }
-.l-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: center; }
-.l-details { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0 3rem; }
-.l-item strong { display: block; margin-bottom: 0.5rem; color: var(--primary); font-size: 0.9rem; text-transform: uppercase; }
-
-.instagram-tease { padding: 6rem 1.5rem 10rem; }
-.ig-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3rem; }
-.ig-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.ig-box { aspect-ratio: 1; background-color: #eee; border-radius: 12px; }
-
-@media (max-width: 992px) {
-  .hero-grid, .l-grid, .features-grid { grid-template-columns: 1fr; }
-  .hero-home { padding: 4rem 0; }
-  .hero-text { text-align: center; }
-  .hero-description { margin: 0 auto 3rem; }
-  .hero-actions { justify-content: center; }
-  .ig-grid { grid-template-columns: 1fr 1fr; }
-}
-</style>
 {% endblock %}

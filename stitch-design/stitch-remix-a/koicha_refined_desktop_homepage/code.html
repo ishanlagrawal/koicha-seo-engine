@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Koicha | A Quiet Ritual of Flavor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f5f3ee",
+                      "surface-container-highest": "#e4e2dd",
+                      "on-surface": "#1b1c19",
+                      "on-primary": "#ffffff",
+                      "outline": "#75786f",
+                      "on-secondary-container": "#78613c",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#fddeb0",
+                      "on-primary-container": "#ddebcc",
+                      "surface": "#fbf9f4",
+                      "background": "#fbf9f4",
+                      "surface-container-high": "#eae8e3",
+                      "tertiary-fixed": "#e1e3de",
+                      "tertiary": "#4d504d",
+                      "surface-container": "#f0eee9",
+                      "on-tertiary-container": "#e5e7e2",
+                      "primary-container": "#5e6b52",
+                      "primary-fixed": "#d9e7c8",
+                      "on-secondary-fixed-variant": "#584321",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-tertiary-fixed-variant": "#444844",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#56624a",
+                      "on-background": "#1b1c19",
+                      "tertiary-container": "#656864",
+                      "primary": "#46533b",
+                      "outline-variant": "#c5c8bd",
+                      "surface-variant": "#e4e2dd",
+                      "secondary-container": "#fddeb0",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#bdcbad",
+                      "on-surface-variant": "#454840",
+                      "on-primary-fixed": "#141f0b",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#e0c296",
+                      "secondary": "#715b37",
+                      "inverse-surface": "#30312e",
+                      "inverse-primary": "#bdcbad",
+                      "on-primary-fixed-variant": "#3e4a34",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#281900",
+                      "tertiary-fixed-dim": "#c5c7c3",
+                      "surface-dim": "#dbdad5",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "on-tertiary-fixed": "#191c1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #fbf9f4; color: #1b1c19; -webkit-font-smoothing: antialiased; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto bg-[#fbf9f4]/90 dark:bg-[#1a1a1a]/90 backdrop-blur-md z-50">
+<div class="font-serif text-2xl font-semibold tracking-tighter text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-serif text-lg tracking-tight text-[#46533b] dark:text-[#f2f4ef] border-b-2 border-[#715b37] pb-1" href="#">Our Story</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">The Matcha</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Menu</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Experience</a>
+<a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="#">Find Us</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2.5 rounded-lg font-label text-[0.75rem] uppercase tracking-widest hover:bg-primary/90 transition-all duration-500">
+            Shop Now
+        </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover brightness-[0.85]" data-alt="cinematic close-up of ceremonial matcha being whisked in a dark ceramic bowl with bamboo whisk and steam rising" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWfM7qEQ7Fdicfh8YpyfUmXmlJYD6O_57FiRVzPWtUVqp49lwOs-6rHFBJzo6LHLd1DSQ9OaABYluiBBgz3O_ujwnpQMpZRsajMTQ5XIleKXkdE3Obsj0OgITn4RZz_-rUQSoqMTx9DfgkIUKkhadKouQMgJy2bufMY757iNIMtwyx3928H5fRp_1J_rxuR_VaMHYGU1TzWsQxu14_VaIs3rMsb1Fge0OIIq6RQ38-6o6em8MJvWcb1IHHi-B5dwmFV2V7mGCMbsoP"/>
+</div>
+<div class="relative z-10 w-full max-w-screen-2xl mx-auto px-12 mt-20">
+<div class="max-w-3xl">
+<h1 class="font-serif text-[4.5rem] leading-[1.1] text-white tracking-tight mb-6">
+                    A Quiet Ritual <br/> of Flavor
+                </h1>
+<p class="font-body text-xl text-white/90 mb-12 max-w-xl leading-relaxed">
+                    Experience the precise art of Korean cuisine and ceremonial tea in the heart of Koregaon Park. A sanctuary for the senses.
+                </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-white text-primary px-10 py-4 rounded-lg font-label text-[0.85rem] uppercase tracking-widest font-semibold hover:bg-surface transition-all duration-300">
+                        Visit Us
+                    </button>
+<button class="border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded-lg font-label text-[0.85rem] uppercase tracking-widest hover:bg-white/10 transition-all duration-300">
+                        The Menu
+                    </button>
+<button class="text-white px-6 py-4 font-label text-[0.85rem] uppercase tracking-widest flex items-center gap-2 group">
+                        Order Online
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Editorial Brand Story -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+<div class="lg:col-span-5">
+<span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-4 block">The Provenance</span>
+<h2 class="font-serif text-[2.75rem] text-primary leading-tight mb-8">
+                    Rooted in Tradition, <br/>Refined in Pune.
+                </h2>
+<div class="space-y-6 font-body text-on-surface-variant leading-[1.8] text-lg">
+<p>
+                        Koicha was born from a desire to translate the meditative pace of a Korean tea ceremony into a modern culinary language. We believe that true luxury lies in the space between the notes—the silence that accompanies a perfectly poured bowl of matcha.
+                    </p>
+<p>
+                        In our Lane 7 atelier, every ingredient is curated with an archivist’s precision, from fermented sauces aged in stone jars to hand-picked tea leaves from the misty slopes of Jeju.
+                    </p>
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center gap-2 text-primary font-label text-[0.8rem] uppercase tracking-widest group" href="#">
+                        Explore Our Philosophy
+                        <span class="w-12 h-[1px] bg-secondary group-hover:w-16 transition-all duration-500"></span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-7 flex justify-end">
+<div class="relative w-full aspect-[4/5] max-w-lg">
+<div class="absolute -inset-4 bg-surface-container-low translate-x-4 translate-y-4"></div>
+<img class="relative z-10 w-full h-full object-cover" data-alt="minimalist interior of a zen-style dining room with light wood, stone textures, and a single branch in a vase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYM_-lHPtP-HRqht7uROmnHXYah1J18KjMTBDaTBSFkTnLLaLUkDeGzK2m859rdveI_4NF1-L7BOj4ppmxDCDJym3LVyRj6bNnHRjkLKeBN_Nb7Dgb2_JqHWYgnmaMHF8vhbJ_1gBqO67w_rfDdp1eE_vVA4bvlqIh7S8x2qtmUTV4EGpXxZawou8lrLT7W9UM7Hpx-T7F9SFVFebyT8HjT3EPTyJW4vwLMU7UfObfZEpxQvdCIRHCvcs6L6RXp1a8WbpKQon98qkX"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Highlights Bento -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-2 block">Our Specialties</span>
+<h2 class="font-serif text-4xl text-primary">Artisanal Highlights</h2>
+</div>
+<p class="font-body text-on-surface-variant max-w-xs text-sm">A seasonal selection of our most requested pairings.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Highlight 1 -->
+<div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+<div class="aspect-[1/1] overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="matcha tiramisu dessert with elegant layers of cream and green tea powder on a ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi1-5NuokzdMeiqJ_gdc70JzyVnLZhErWnd-pjQ3k3cPV6RF2BsEKyJsNikzZdDBd21-InEZLtl11uAWQTe6sbpJzMSpLssPM3oK536bj_FEum0J4kN0JB45BdixV2Nm11bLUiOUshGUdKI3pl8uNp1kKTmIEaYpvAa_1VNhEpPtkeegy8bUSFUlnnMo0duWP2rLXWf62k4T2dRAcLVQB8lYCl5BNOG3gaDxe2mbR0z4MlxQk29VgbmdUHSy2WZy0fV_Yx9TaCRFuN"/>
+</div>
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-serif text-xl text-primary">Matcha Tiramisu</h3>
+<span class="font-label text-xs text-secondary">Signature</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Mascarpone clouds infused with ceremonial grade matcha, layered between sponge soaked in cold-brew umami.
+                    </p>
+</div>
+<!-- Highlight 2 -->
+<div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5 md:translate-y-8">
+<div class="aspect-[1/1] overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="delicate kimchi mandu dumplings arranged on a dark stone platter with microgreens and dipping sauce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWn11Jfgu8z4BTWQjvimFCQrF8FYBdop7ljdr0WNjspvtwd2u-sd53k_CWgIirG09W9iaxVxpa7SD6q_cj0VZe1ZsxSysaQtfayXER7us0cHN0azv9IyUkBYNdaMxpFzfDT_dXtOhNY4GpCh6U_BaSYdEw_Z1Tv7aGjMVB2aibWf_cYPCMUpdWsE-DeD5Ym-y42mrFXNLH2PTO5Dt2A4jyu0byyZ46xKLMs4YB1XB0l4SouFz7J8aKrTlOxcdPiCehC6ztsfaAiBkx"/>
+</div>
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-serif text-xl text-primary">Kimchi Mandu</h3>
+<span class="font-label text-xs text-secondary">Seasonal</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Hand-pleated dumplings filled with 3-month aged kimchi and silken tofu. Served with charred scallion oil.
+                    </p>
+</div>
+<!-- Highlight 3 -->
+<div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+<div class="aspect-[1/1] overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="a refreshing iced yuzu drink with a sprig of rosemary in a designer glass on a light marble table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaq8fo7M2cYG2m40KKUfrVhlCyALqxJPvXDxsgFPsCi7V2N2HHJPAAgsBSMYYN8BtTeM05CY-SvnsJnldviB9l67a_xTF59nU4CPOagX0JSfwpg22l4cqoStSxUVu_MRUSGaTziyBYxvQoTth_2g4iDUrPT7PAinfVPK_Kvt8VXmF7WH6MjD70Vhsv4_vUymZkRgNRZWpByT2J_TqW1CAW9AF6FuCS9vR5xQ8b3DyYtut64jpHFddYl7s2gzfqUozfvHxciece4Rj7"/>
+</div>
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-serif text-xl text-primary">Yuzu Sparkler</h3>
+<span class="font-label text-xs text-secondary">Aperitif</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Cold-pressed yuzu, fermented honey, and sparkling mineral water. A bright, citrusy pause before the meal.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Quote -->
+<section class="py-32 bg-surface">
+<div class="max-w-screen-md mx-auto px-12 text-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8">format_quote</span>
+<blockquote class="font-serif text-3xl italic text-primary leading-snug mb-8">
+                "Koicha isn't just a restaurant; it's a sensory pause button in the middle of Pune's chaos. The attention to detail in their tea ritual is unparalleled."
+            </blockquote>
+<cite class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">— Editorial, The Modern Archivist</cite>
+</div>
+</section>
+<!-- First Time Paths -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="text-center mb-16">
+<h2 class="font-serif text-4xl text-primary mb-4">First Time?</h2>
+<p class="font-body text-on-surface-variant">We've curated three paths for your first Koicha experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">coffee</span>
+</div>
+<h4 class="font-serif text-xl text-primary mb-3">The Tea Ceremony</h4>
+<p class="font-body text-sm text-on-surface-variant mb-6">A 45-minute guided tasting of rare single-origin teas and traditional sweets.</p>
+<a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="#">Book Experience</a>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">restaurant</span>
+</div>
+<h4 class="font-serif text-xl text-primary mb-3">The Chef's Table</h4>
+<p class="font-body text-sm text-on-surface-variant mb-6">A six-course exploration of contemporary Korean flavors and fermentation.</p>
+<a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="#">Reserve Table</a>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">local_mall</span>
+</div>
+<h4 class="font-serif text-xl text-primary mb-3">The Takeaway</h4>
+<p class="font-body text-sm text-on-surface-variant mb-6">Signature brews and pantry staples to bring the Koicha ritual home.</p>
+<a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="#">Order Now</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Visit the Atelier (Map Section) -->
+<section class="py-32 bg-surface overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-12 flex flex-col lg:flex-row items-center gap-20">
+<div class="w-full lg:w-1/2">
+<span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-4 block">Location</span>
+<h2 class="font-serif text-4xl text-primary mb-8">Visit the Atelier</h2>
+<div class="space-y-8 font-body">
+<div>
+<h5 class="font-bold text-primary mb-2">Address</h5>
+<p class="text-on-surface-variant leading-relaxed">
+                            Lane 7, Koregaon Park,<br/>
+                            Next to the Banyan Grove,<br/>
+                            Pune, Maharashtra 411001
+                        </p>
+</div>
+<div>
+<h5 class="font-bold text-primary mb-2">Contact</h5>
+<p class="text-on-surface-variant">hello@koicha.atelier<br/>+91 20 4930 2211</p>
+</div>
+<div>
+<h5 class="font-bold text-primary mb-2">Hours</h5>
+<p class="text-on-surface-variant">Tue – Sun: 11:00 AM – 10:00 PM<br/>Mon: Closed</p>
+</div>
+<button class="bg-primary text-on-primary px-10 py-3.5 rounded-lg font-label text-xs uppercase tracking-widest mt-4">
+                        Get Directions
+                    </button>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<div class="aspect-square bg-surface-container-high rounded-full overflow-hidden border-[12px] border-surface-container relative">
+<img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="abstract architectural map-like view of minimalist buildings and green park spaces from above" data-location="Pune" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsS1u0mdJHB-J9HpA7W-QyIcIGn3hSKy-TAzPUSt-pEQQPBlaOZVCDvihhrIA_pshFwCP3BZFZNbVIEslxIgk7JtTqpBuJIovyr7xQ5H0Ujy8o54Zir3OR7ut-EmJ3cQ4bnkQOOzNcep-nZl4D474ASTcnNhgcivo5Jk8XQSjH__N1Rsg1Am4R2sxJVmNuwj4SbY4IyskhK2-Imgofna1FjpcYb7THVzBSN473tbO6QA4zX2qSctMkqbA-vyGm-Y6q0sLnSXcB5ZY5"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4 h-4 bg-secondary rounded-full animate-ping"></div>
+<div class="absolute w-4 h-4 bg-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#f0eee9] dark:bg-[#151613] full-width py-20 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="font-serif text-xl text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+<p class="font-sans text-xs uppercase tracking-widest leading-loose text-[#46533b]/70">
+                    Artisan Korean Atelier<br/>
+                    Crafting stillness through flavor.
+                </p>
+</div>
+<div>
+<h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Discover</h6>
+<ul class="space-y-4">
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Provenance</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Wholesale</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Inquiry</h6>
+<ul class="space-y-4">
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Privacy</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Press</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Connect</h6>
+<div class="flex gap-4">
+<a class="text-primary hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">brand_awareness</span>
+</a>
+<a class="text-primary hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">camera</span>
+</a>
+</div>
+<p class="font-sans text-[0.65rem] uppercase tracking-widest text-[#46533b]/40 mt-12">
+                    © 2024 Koicha Artisan Atelier. Lane 7, Pune.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

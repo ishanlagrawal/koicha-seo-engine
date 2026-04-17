@@ -368,7 +368,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
@@ -376,41 +376,12 @@
 
   
 <style>
-.menu-hero { padding: 6rem 0 4rem; text-align: center; background-color: var(--white); }
-.subtitle { font-size: 1.25rem; color: var(--text-light); max-width: 700px; margin: 0 auto; }
-
-.menu-container { display: grid; grid-template-columns: 250px 1fr; gap: 4rem; padding: 4rem 24px; position: relative; }
-
-.category-nav { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 1rem; }
-.nav-link { font-weight: 600; color: var(--text-light); padding: 8px 0; border-bottom: 2px solid transparent; }
-.nav-link:hover { color: var(--primary); }
-
-.menu-category { margin-bottom: 6rem; scroll-margin-top: 120px; }
-.menu-category h2 { border-bottom: 1px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
-
-.items-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-.menu-item-card { background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); transition: var(--transition); }
-.menu-item-card:hover { transform: translateY(-5px); }
-
-.item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
-.item-header h3 { font-family: var(--font-main); font-size: 1.25rem; margin: 0; }
-.price { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
-
-.item-description { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-
-.item-footer { display: flex; justify-content: space-between; align-items: center; }
-.view-details { font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-
-.menu-cta { padding: 4rem 0 8rem; }
-.cta-card { background-color: var(--primary); color: var(--white); padding: 4rem; border-radius: 24px; text-align: center; }
-.cta-card h2 { color: var(--white); }
-.cta-card p { margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9; }
-.cta-card .btn-primary { background-color: var(--white); color: var(--primary); }
-
-@media (max-width: 992px) {
-  .menu-container { grid-template-columns: 1fr; }
-  .menu-sidebar { display: none; }
-}
+  .menu-sidebar nav a:hover { opacity: 1 !important; transform: translateX(5px); }
+  .menu-item-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+  @media (max-width: 992px) {
+    .menu-container { grid-template-columns: 1fr; }
+    .menu-sidebar { display: none; }
+  }
 </style>
 
 </head>
@@ -420,19 +391,15 @@
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container site-header-inner">
-      <a href="https://ishanlagrawal.github.io/koicha-seo-engine/" class="logo" aria-label="Koicha Home">
-        <img src="https://ishanlagrawal.github.io/koicha-seo-engine/static/images/koicha_logo_round.png" alt="Koicha Logo" class="header-logo-img">
-        <div class="logo-group">
-            <span class="logo-text">Koicha</span>
-            <span class="logo-tagline">The Art of Matcha & More</span>
-        </div>
+      <a href="https://ishanlagrawal.github.io/koicha-seo-engine/" class="logo" aria-label="Koicha Home" style="text-decoration: none;">
+        <span class="logo-text">Koicha</span>
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu.html">Menu</a>
         <a href="https://ishanlagrawal.github.io/koicha-seo-engine/matcha-pune.html">Matcha</a>
-        <a href="https://ishanlagrawal.github.io/koicha-seo-engine/korean-food-pune-guide.html">Guide</a>
-        <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-primary" target="_blank" rel="noopener"
-          id="order-swiggy-nav">Order on Swiggy</a>
+        <a href="https://ishanlagrawal.github.io/koicha-seo-engine/korean-food-pune-guide.html">Experience</a>
+        <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-outline" target="_blank" rel="noopener"
+          id="order-swiggy-nav" style="padding: 0.75rem 1.5rem; font-size: 0.7rem; letter-spacing: 2px;">Order</a>
       </nav>
     </div>
   </header>
@@ -440,29 +407,31 @@
   <!-- Page Content -->
   <main id="main-content">
     
-<section class="menu-hero">
-  <div class="container">
-    <h1>Our Selection</h1>
-    <p class="subtitle">Artisan Korean flavors and premium Japanese matcha, prepared in limited batches daily in the heart of Koregaon Park.</p>
+<section class="menu-hero" style="background: var(--surface); padding: 10rem 0 6rem; text-align: center;">
+  <div class="container" data-reveal>
+    <span class="label-md" style="margin-bottom: 1.5rem;">The Curation</span>
+    <h1 style="margin-bottom: 1.5rem;">Our Selection</h1>
+    <p style="max-width: 700px; margin: 0 auto; font-size: 1.25rem;">Artisan Korean flavors and premium Japanese matcha, prepared in limited batches daily in the heart of Koregaon Park.</p>
   </div>
 </section>
 
-<div class="menu-container container">
+<div class="menu-container container" style="display: grid; grid-template-columns: 280px 1fr; gap: 6rem; padding-bottom: 8rem;">
   <!-- Sidebar Category Navigation -->
-  <aside class="menu-sidebar">
-    <nav class="category-nav">
+  <aside class="menu-sidebar" style="position: sticky; top: 120px; height: fit-content;">
+    <nav class="category-nav" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <span class="label-md" style="margin-bottom: 1rem; color: var(--on-surface-variant); opacity: 0.5;">Categories</span>
       
-      <a href="#korean-fried-chicken" class="nav-link">Korean Fried Chicken</a>
+      <a href="#korean-fried-chicken" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Korean Fried Chicken</a>
       
-      <a href="#kimchi-specials" class="nav-link">Kimchi Specials</a>
+      <a href="#kimchi-specials" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Kimchi Specials</a>
       
-      <a href="#gimbap" class="nav-link">Gimbap</a>
+      <a href="#gimbap" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Gimbap</a>
       
-      <a href="#tteokbokki" class="nav-link">Tteokbokki</a>
+      <a href="#tteokbokki" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Tteokbokki</a>
       
-      <a href="#bap-bowls" class="nav-link">Bap Bowls</a>
+      <a href="#bap-bowls" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Bap Bowls</a>
       
-      <a href="#matcha-drinks" class="nav-link">Matcha Drinks</a>
+      <a href="#matcha-drinks" style="text-decoration: none; font-family: var(--font-display); font-size: 1.1rem; color: var(--primary); opacity: 0.6; transition: var(--transition);">Matcha Drinks</a>
       
     </nav>
   </aside>
@@ -470,439 +439,457 @@
   <!-- Main Menu List -->
   <div class="menu-grid">
     
-    <section id="korean-fried-chicken" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Korean Fried Chicken</h2>
+    <section id="korean-fried-chicken" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Korean Fried Chicken</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/k-fried-chicken.html">K-Fried Chicken</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/k-fried-chicken.html" style="text-decoration: none; color: inherit;">K-Fried Chicken</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹329</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/k-fried-chicken.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/k-fried-chicken.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹329</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/yangnyeom-chicken.html">Yangnyeom Chicken</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/yangnyeom-chicken.html" style="text-decoration: none; color: inherit;">Yangnyeom Chicken</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/yangnyeom-chicken.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/yangnyeom-chicken.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/soya-chicken.html">Soya Chicken</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/soya-chicken.html" style="text-decoration: none; color: inherit;">Soya Chicken</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/soya-chicken.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/soya-chicken.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
       </div>
     </section>
     
-    <section id="kimchi-specials" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Kimchi Specials</h2>
+    <section id="kimchi-specials" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Kimchi Specials</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-veg.html">Kimchi Fried Rice (Veg)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-veg.html" style="text-decoration: none; color: inherit;">Kimchi Fried Rice (Veg)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹289</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-veg.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-veg.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹289</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-nv.html">Kimchi Fried Rice (NV)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-nv.html" style="text-decoration: none; color: inherit;">Kimchi Fried Rice (NV)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-nv.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-fried-rice-nv.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-veg.html">Kimchi Soup Fried Rice (Veg)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-veg.html" style="text-decoration: none; color: inherit;">Kimchi Soup Fried Rice (Veg)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹299</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-veg.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-veg.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹299</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-nv.html">Kimchi Soup Fried Rice (NV)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-nv.html" style="text-decoration: none; color: inherit;">Kimchi Soup Fried Rice (NV)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-nv.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/kimchi-soup-fried-rice-nv.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
       </div>
     </section>
     
-    <section id="gimbap" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Gimbap</h2>
+    <section id="gimbap" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Gimbap</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-veg.html">Gimbap (Veg)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-veg.html" style="text-decoration: none; color: inherit;">Gimbap (Veg)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹239</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-veg.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-veg.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹239</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-egg.html">Gimbap (Egg)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-egg.html" style="text-decoration: none; color: inherit;">Gimbap (Egg)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹249</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-egg.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-egg.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹249</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-chicken.html">Gimbap (Chicken)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-chicken.html" style="text-decoration: none; color: inherit;">Gimbap (Chicken)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹269</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-chicken.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-chicken.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹269</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-tuna.html">Gimbap (Tuna)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-tuna.html" style="text-decoration: none; color: inherit;">Gimbap (Tuna)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹289</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-tuna.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/gimbap-tuna.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹289</div>
+          
         </article>
         
       </div>
     </section>
     
-    <section id="tteokbokki" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Tteokbokki</h2>
+    <section id="tteokbokki" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Tteokbokki</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/classic-tteokbokki.html">Classic Tteokbokki</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/classic-tteokbokki.html" style="text-decoration: none; color: inherit;">Classic Tteokbokki</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/classic-tteokbokki.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/classic-tteokbokki.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/cream-cheese-tteokbokki.html">Cream & Cheese Tteokbokki</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/cream-cheese-tteokbokki.html" style="text-decoration: none; color: inherit;">Cream & Cheese Tteokbokki</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹389</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/cream-cheese-tteokbokki.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/cream-cheese-tteokbokki.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹389</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-tteokbokki.html">Chicken Tteokbokki</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-tteokbokki.html" style="text-decoration: none; color: inherit;">Chicken Tteokbokki</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹389</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-tteokbokki.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-tteokbokki.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹389</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/fish-tteokbokki.html">Fish Tteokbokki</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/fish-tteokbokki.html" style="text-decoration: none; color: inherit;">Fish Tteokbokki</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹389</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/fish-tteokbokki.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/fish-tteokbokki.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹389</div>
+          
         </article>
         
       </div>
     </section>
     
-    <section id="bap-bowls" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Bap Bowls</h2>
+    <section id="bap-bowls" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Bap Bowls</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-veg.html">Bibimbap (Veg)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-veg.html" style="text-decoration: none; color: inherit;">Bibimbap (Veg)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹299</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-veg.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-veg.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹299</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-chicken.html">Bibimbap (Chicken)</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-chicken.html" style="text-decoration: none; color: inherit;">Bibimbap (Chicken)</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹349</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-chicken.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/bibimbap-chicken.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹349</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-bulgogi-bowl.html">Chicken Bulgogi Bowl</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-bulgogi-bowl.html" style="text-decoration: none; color: inherit;">Chicken Bulgogi Bowl</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹379</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-bulgogi-bowl.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-bulgogi-bowl.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹379</div>
+          
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-katsu-bowl.html">Chicken Katsu Bowl</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-katsu-bowl.html" style="text-decoration: none; color: inherit;">Chicken Katsu Bowl</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
-            <span class="price">₹399</span>
-            
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #715b37; background: #fdfaf7; padding: 4px 10px; border-radius: 20px;">Signature</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-katsu-bowl.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-nonveg">Non-Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/chicken-katsu-bowl.html" class="view-details">Learn More →</a>
-          </div>
+          <div style="font-family: var(--font-body); font-weight: 600; font-size: 1.4rem; color: var(--primary);">₹399</div>
+          
         </article>
         
       </div>
     </section>
     
-    <section id="matcha-drinks" class="menu-category" itemprop="hasMenuSection" itemscope itemtype="https://schema.org/MenuSection">
-      <h2 itemprop="name">Matcha Drinks</h2>
+    <section id="matcha-drinks" class="menu-category" style="margin-bottom: 8rem; scroll-margin-top: 150px;" data-reveal>
+      <div style="margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;">Matcha Drinks</h2>
+        <div style="width: 60px; height: 1px; background: var(--secondary);"></div>
+      </div>
       
-      <div class="items-list">
+      <div class="items-list" style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/mango-passion-matcha.html">Mango Passion Matcha</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/mango-passion-matcha.html" style="text-decoration: none; color: inherit;">Mango Passion Matcha</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/mango-passion-matcha.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/mango-passion-matcha.html" class="view-details">Learn More →</a>
-          </div>
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/banana-blueberry-matcha.html">Banana & Blueberry Matcha</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/banana-blueberry-matcha.html" style="text-decoration: none; color: inherit;">Banana & Blueberry Matcha</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/banana-blueberry-matcha.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/banana-blueberry-matcha.html" class="view-details">Learn More →</a>
-          </div>
         </article>
         
-        <article class="menu-item-card" itemprop="hasMenuItem" itemscope itemtype="https://schema.org/MenuItem">
-          <div class="item-header">
-            <h3 itemprop="name"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/passion-matcha.html">Passion Matcha</a></h3>
+        <article class="menu-item-card ghost-border" style="background: var(--surface-container-lowest); padding: 2.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: flex-start; transition: var(--transition);">
+          <div style="max-width: 70%;">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;"><a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/passion-matcha.html" style="text-decoration: none; color: inherit;">Passion Matcha</a></h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; opacity: 0.8;"></p>
             
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              
+              <span class="label-md" style="font-size: 0.55rem; color: #46533b; background: #f2f4ef; padding: 4px 10px; border-radius: 20px;">Vegetarian</span>
+              
+              <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/passion-matcha.html" style="font-size: 0.7rem; text-decoration: none; color: var(--secondary); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Details →</a>
+            </div>
           </div>
           
-          <p class="item-description" itemprop="description"></p>
           
-          <div class="item-footer">
-            
-            <span class="tag tag-veg">Veg</span>
-            
-            <a href="https://ishanlagrawal.github.io/koicha-seo-engine/menu/passion-matcha.html" class="view-details">Learn More →</a>
-          </div>
         </article>
         
       </div>
@@ -911,11 +898,14 @@
   </div>
 </div>
 
-<section class="menu-cta container">
-  <div class="cta-card">
-    <h2>Ready to Order?</h2>
-    <p>We're available for delivery and walk-in at Lane 7, Koregaon Park.</p>
-    <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-primary btn-large">Order via Swiggy</a>
+<section style="background: var(--surface-container); text-align: center; padding: 8rem 0;">
+  <div class="container" data-reveal>
+    <h2 style="margin-bottom: 2rem;">Ready for the Ritual?</h2>
+    <p style="margin-bottom: 3.5rem; opacity: 0.7;">Visit us at Lane 7, Koregaon Park or order for home delivery.</p>
+    <div style="display: flex; gap: 2rem; justify-content: center;">
+      <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-primary">Order on Swiggy</a>
+      <a href="https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5" class="btn btn-outline">Find Atelier</a>
+    </div>
   </div>
 </section>
 
@@ -923,29 +913,52 @@
 
   <!-- Mobile Conversion Bar (Lane 7 Guidance) -->
   <div class="mobile-conversion-bar">
-    <a href="https://www.swiggy.com/direct/brand/771805" class="cta-item" target="_blank">
-      <span class="cta-icon">🥡</span>
-      <span class="cta-label">Order</span>
+    <a href="https://www.swiggy.com/direct/brand/771805" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">🥡</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Order</div>
     </a>
-    <a href="https://wa.me/917350858583" class="cta-item" target="_blank">
-      <span class="cta-icon">🍵</span>
-      <span class="cta-label">Chat</span>
+    <a href="https://wa.me/917350858583" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">🍵</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Chat</div>
     </a>
-    <a href="https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5" class="cta-item" target="_blank">
-      <span class="cta-icon">📍</span>
-      <span class="cta-label">Lane 7</span>
+    <a href="https://maps.app.goo.gl/rn9ENjkKKTEPSPDq5" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">📍</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Lane 7</div>
     </a>
   </div>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer ghost-border" style="border-left: 0; border-right: 0; border-bottom: 0;">
     <div class="container">
-      <div class="logo-group">
-        <span class="logo-text">Koicha</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text" style="font-size: 1.5rem;">Koicha</span>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Artisan Korean Atelier. Crafting stillness through flavor in the heart of Pune.</p>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Discover</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Provenance</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Sustainability</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Inquiry</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Press</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Social</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Instagram</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-line"></div>
-      <p>Artisan Kitchen & Local Matcha Project</p>
-      <p class="footer-bottom">© 2024 Koicha. Handcrafted in Koregaon Park.</p>
+      <div style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid rgba(197, 200, 189, 0.15); font-size: 0.75rem; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase;">
+        © 2024 Koicha Artisan Atelier. Handcrafted in Koregaon Park.
+      </div>
     </div>
   </footer>
 

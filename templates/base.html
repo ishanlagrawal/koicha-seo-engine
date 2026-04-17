@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
@@ -51,19 +51,15 @@
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container site-header-inner">
-      <a href="{{ base_url }}/" class="logo" aria-label="Koicha Home">
-        <img src="{{ base_url }}/{{ logo_url }}" alt="Koicha Logo" class="header-logo-img">
-        <div class="logo-group">
-            <span class="logo-text">Koicha</span>
-            <span class="logo-tagline">The Art of Matcha & More</span>
-        </div>
+      <a href="{{ base_url }}/" class="logo" aria-label="Koicha Home" style="text-decoration: none;">
+        <span class="logo-text">Koicha</span>
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="{{ base_url }}/menu.html">Menu</a>
         <a href="{{ base_url }}/matcha-pune.html">Matcha</a>
-        <a href="{{ base_url }}/korean-food-pune-guide.html">Guide</a>
-        <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-primary" target="_blank" rel="noopener"
-          id="order-swiggy-nav">Order on Swiggy</a>
+        <a href="{{ base_url }}/korean-food-pune-guide.html">Experience</a>
+        <a href="https://www.swiggy.com/direct/brand/771805" class="btn btn-outline" target="_blank" rel="noopener"
+          id="order-swiggy-nav" style="padding: 0.75rem 1.5rem; font-size: 0.7rem; letter-spacing: 2px;">Order</a>
       </nav>
     </div>
   </header>
@@ -75,29 +71,52 @@
 
   <!-- Mobile Conversion Bar (Lane 7 Guidance) -->
   <div class="mobile-conversion-bar">
-    <a href="{{ config.brand.swiggy_url }}" class="cta-item" target="_blank">
-      <span class="cta-icon">🥡</span>
-      <span class="cta-label">Order</span>
+    <a href="{{ config.brand.swiggy_url }}" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">🥡</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Order</div>
     </a>
-    <a href="https://wa.me/{{ whatsapp_num }}" class="cta-item" target="_blank">
-      <span class="cta-icon">🍵</span>
-      <span class="cta-label">Chat</span>
+    <a href="https://wa.me/{{ whatsapp_num }}" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">🍵</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Chat</div>
     </a>
-    <a href="{{ config.location.google_maps_url }}" class="cta-item" target="_blank">
-      <span class="cta-icon">📍</span>
-      <span class="cta-label">Lane 7</span>
+    <a href="{{ config.location.google_maps_url }}" class="cta-item" target="_blank" style="text-decoration: none; color: #fff; text-align: center;">
+      <div style="font-size: 1.2rem;">📍</div>
+      <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;">Lane 7</div>
     </a>
   </div>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer ghost-border" style="border-left: 0; border-right: 0; border-bottom: 0;">
     <div class="container">
-      <div class="logo-group">
-        <span class="logo-text">{{ config.brand.name }}</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text" style="font-size: 1.5rem;">Koicha</span>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Artisan Korean Atelier. Crafting stillness through flavor in the heart of Pune.</p>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Discover</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Provenance</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Sustainability</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Inquiry</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Press</a></li>
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <span class="label-md" style="margin-bottom: 1.5rem;">Social</span>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="#" style="text-decoration: none; color: inherit; font-size: 0.85rem;">Instagram</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-line"></div>
-      <p>Artisan Kitchen & Local Matcha Project</p>
-      <p class="footer-bottom">© 2024 {{ config.brand.name }}. Handcrafted in Koregaon Park.</p>
+      <div style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid rgba(197, 200, 189, 0.15); font-size: 0.75rem; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase;">
+        © 2024 Koicha Artisan Atelier. Handcrafted in Koregaon Park.
+      </div>
     </div>
   </footer>
 

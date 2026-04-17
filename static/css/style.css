@@ -1,180 +1,170 @@
 /* 
-  Koicha Style System v3.0: "The Artisan Magazine"
-  Aesthetic: Editorial, Organic, Premium, Grounded.
+  Koicha Style System v4.0: "The Modern Archivist" (Stitch Remix)
+  Aesthetic: Editorial, Asymmetrical, Tactile, Premium.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap');
-
 :root {
-  /* Artisan Palette */
-  --rice-paper: #F8F5F1;  /* Soft cream base */
-  --matcha: #3A7D6C;      /* Deep organic green */
-  --matcha-glow: #e6f0ed; /* Subtle highlight */
-  --ink: #1C1C1C;         /* Editorial black */
-  --brass: #A68D6A;       /* Premium accent */
-  --mist: #EDF2F0;        /* Cool neutral */
+  /* Surfaces & Hierarchy */
+  --surface: #fbf9f4;                /* Base Rice Paper */
+  --surface-container-low: #f5f3ee;  /* Subtle Layer */
+  --surface-container: #f0eee9;      /* Defined Block */
+  --surface-container-high: #eae8e3; /* Accented Block */
+  --surface-container-lowest: #ffffff; /* Card Lift */
   
-  /* Typography */
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Outfit", sans-serif;
+  /* Brand Palette */
+  --primary: #46533b;      /* Ceremonial Matcha */
+  --secondary: #715b37;    /* Brushed Brass */
+  --on-surface: #1b1c19;   /* Near-Black Ink */
+  --on-surface-variant: #454840;
+  --outline-variant: #c5c8bd; /* Ghost Border */
   
-  /* System */
-  --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  --shadow-soft: 0 4px 24px rgba(0,0,0,0.04);
-  --container-width: 1100px;
+  /* Typography Scale */
+  --font-display: "Noto Serif", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* Spacing & Rhythm */
+  --space-unit: 1rem;
+  --section-padding: 8rem;
+  --container-width: 1400px;
+  
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.2, 0, 0, 1);
+  --transition: all 0.6s var(--ease-editorial);
 }
 
 /* Base Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  background-color: var(--rice-paper);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  line-height: 1.6;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-.container { max-width: var(--container-width); margin: 0 auto; padding: 0 40px; }
+.container { 
+  max-width: var(--container-width); 
+  margin: 0 auto; 
+  padding: 0 5vw; 
+}
 
-/* Typography Scale */
-h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.1; }
-p { font-size: 1.1rem; opacity: 0.9; }
+/* Typography Scaling */
+h1, h2, h3, .font-serif { 
+  font-family: var(--font-display); 
+  font-weight: 500; 
+  line-height: 1.1; 
+  letter-spacing: -0.02em;
+}
 
-/* Header & Nav */
-.site-header {
-  padding: 2.5rem 0;
-  background: var(--rice-paper);
+h1 { font-size: clamp(3.5rem, 8vw, 5.5rem); }
+h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+h3 { font-size: 2rem; }
+
+p { font-size: 1.125rem; color: var(--on-surface-variant); max-width: 65ch; }
+
+.label-md {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--secondary);
+  font-weight: 600;
+  display: block;
+}
+
+/* Layout Utilities */
+.bg-matcha-cream { background-color: #F2F4EF; }
+.bg-surface-container { background-color: var(--surface-container); }
+
+section { padding: var(--section-padding) 0; }
+
+/* Subtle Functional Separators */
+.ghost-border { border: 1px solid rgba(197, 200, 189, 0.15); }
+.border-b-subtle { border-bottom: 1px solid rgba(197, 200, 189, 0.15); }
+
+/* Buttons: The Quiet Action */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  border-radius: 4px;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  text-decoration: none;
   transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary { background-color: var(--primary); color: #fff; }
+.btn-primary:hover { background-color: #3e4a34; transform: translateY(-2px); }
+
+.btn-outline { border: 1px solid rgba(70, 83, 59, 0.2); color: var(--primary); }
+.btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+/* Header & Nav: Refined Center */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 0;
+  background: rgba(251, 249, 244, 0.9);
+  backdrop-blur: 10px;
   z-index: 1000;
+  transition: var(--transition);
 }
 
 .site-header-inner { display: flex; justify-content: space-between; align-items: center; }
 
-.logo-group { text-decoration: none; color: var(--ink); }
-.logo-text { 
-  font-family: var(--font-serif); 
-  font-size: 2.6rem; 
-  display: block;
-}
-.logo-tagline { 
-  font-size: 0.7rem; 
-  letter-spacing: 2.5px; 
-  text-transform: uppercase; 
+.nav-links { display: flex; gap: 3rem; align-items: center; }
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: var(--primary);
   opacity: 0.6;
-}
-
-/* Hero: The Artisan Statement */
-.hero-home { 
-  padding: 8rem 0 12rem; 
-  display: flex; 
-  align-items: center;
-  gap: 4rem;
-}
-
-.hero-text { flex: 1.2; }
-.hero-text h1 { font-size: 5.5rem; margin-bottom: 2rem; letter-spacing: -2px; }
-.hero-text p { font-size: 1.4rem; max-width: 500px; margin-bottom: 3rem; }
-
-.hero-media { flex: 0.8; position: relative; }
-.hero-img { 
-  width: 100%; 
-  border-radius: 4px; 
-  filter: sepia(0.1) contrast(1.05);
-}
-
-/* Section Architecture */
-section { padding: 12rem 0; border-top: 1px solid rgba(0,0,0,0.05); }
-
-.section-head { margin-bottom: 6rem; max-width: 600px; }
-.section-head h2 { font-size: 3.5rem; margin-bottom: 1rem; }
-.section-label { 
-  color: var(--brass); 
-  text-transform: uppercase; 
-  letter-spacing: 3px; 
-  font-size: 0.8rem; 
-  margin-bottom: 1.5rem;
-  display: block; font-weight: 600;
-}
-
-/* Menu & Grid Cards */
-.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-
-.menu-card { 
-  padding: 0;
-  transition: var(--transition);
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 3rem;
-}
-
-.menu-card:hover { transform: translateX(10px); }
-.item-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
-.item-name { font-family: var(--font-serif); font-size: 2rem; }
-.item-price { font-family: var(--font-sans); color: var(--brass); font-weight: 500; }
-
-/* Reviews: Handwritten Vibes */
-.reviews-section { background: var(--matcha); color: var(--rice-paper); }
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-
-.review-card { 
-  padding: 2rem; 
-  border: 1px solid rgba(255,255,255,0.1); 
   transition: var(--transition);
 }
+.nav-links a:hover { opacity: 1; }
 
-.review-card:hover { border-color: var(--rice-paper); }
-.review-text { font-family: var(--font-serif); font-style: italic; font-size: 1.4rem; line-height: 1.4; margin-bottom: 2rem; }
-.review-author { text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: 600; }
+.logo-text { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--primary); }
 
-/* Artisan Guide / FAQ */
-.faq-grid { max-width: 800px; margin: 0 auto; }
-.faq-item { margin-bottom: 4rem; }
-.faq-item h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--matcha); }
+/* Footer */
+.site-footer { padding: 8rem 0; background: var(--surface-container); }
+.footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 4rem; }
 
-/* MOBILE LANE 7 CTA: THE CONVERSION HUB */
+/* Mobile Lane 7 Bar */
 .mobile-conversion-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--ink);
-  color: #fff;
-  padding: 1.2rem;
-  display: flex;
+  background: var(--primary);
+  display: none; /* Desktop hidden */
   justify-content: space-around;
-  align-items: center;
+  padding: 1rem;
   z-index: 2000;
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
-  visibility: hidden; /* Only visible on Mobile in Query */
 }
 
 @media (max-width: 768px) {
-  .mobile-conversion-bar { display: flex; visibility: visible; }
-  .hero-home { flex-direction: column; padding: 4rem 0 8rem; text-align: center; }
-  .hero-text h1 { font-size: 3.5rem; }
-  .menu-grid, .reviews-grid { grid-template-columns: 1fr; }
-  h2 { font-size: 2.8rem; }
-  section { padding: 6rem 0; }
-  .hero-img { display: none; } /* Focus on text for speed */
-  .whatsapp-btn { display: none; } /* Replaced by bottom bar */
+  :root { --section-padding: 5rem; }
+  .nav-links { display: none; }
+  .mobile-conversion-bar { display: flex; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 
-.cta-item { text-decoration: none; color: #fff; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.cta-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; opacity: 0.7; }
-.cta-icon { font-size: 1.4rem; }
-
-/* Footer */
-.site-footer { padding: 8rem 0 4rem; text-align: center; opacity: 0.8; font-size: 0.9rem; }
-.footer-line { width: 40px; height: 1px; background: var(--ink); margin: 2rem auto; }
-
-/* Interactive: Reveal Animations */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 1s var(--transition);
+  transform: translateY(20px);
+  transition: opacity 1s var(--ease-editorial), transform 1s var(--ease-editorial);
 }
 
-[data-reveal].revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+[data-reveal].revealed { opacity: 1; transform: translateY(0); }
