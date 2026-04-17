@@ -10,10 +10,20 @@ load_dotenv()
 class KoichaSheetEditor:
     def __init__(self):
         self.spreadsheet_id = os.getenv('KOICHA_SHEET_ID')
-        # Load Service Account
-        sa_json = json.loads(os.getenv('GOOGLE_SERVICE_ACCOUNT_JSON'))
-        self.creds = service_account.Credentials.from_service_account_info(sa_json)
-        self.service = build('sheets', 'v4', credentials=self.creds)
+        sa_json_str = os.getenv('GOOGLE_SERVICE_ACCOUNT_JSON')
+        
+        if not self.spreadsheet_id or not sa_json_str:
+            print("[ERROR] Missing Cloud Sheet Credentials.")
+            self.service = None
+            return
+
+        try:
+            sa_json = json.loads(sa_json_str)
+            self.creds = service_account.Credentials.from_service_account_info(sa_json)
+            self.service = build('sheets', 'v4', credentials=self.creds)
+        except Exception as e:
+            print(f"[ERROR] Sheet Initialization failed: {e}")
+            self.service = None
 
     def get_column_values(self, tab_name, column_range="A:A"):
         """Fetches all values from a specific column."""

@@ -13,10 +13,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CONFIG_PATH = Path("config/koicha_config.json")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+CONFIG_PATH = Path(__file__).parent.parent / "config/koicha_config.json"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
 
 def load_config():
+    if not CONFIG_PATH.exists():
+        return {"brand": {"name": "Koicha"}}
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -45,9 +47,12 @@ Length: 35-45 words.
 Return ONLY the reply text. No quotes.
     """
     
+    if not GROQ_API_KEY:
+        return "Intelligence engine pending setup."
+        
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
+        "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
     }
     data = {
