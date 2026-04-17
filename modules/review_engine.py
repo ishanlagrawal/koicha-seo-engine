@@ -44,7 +44,6 @@ def generate_reply(name, review_text, rating, config):
     - NEVER use clichés like "we are thrilled", "means a lot", "delighted", "serving customers", or "valued feedback".
     - Do not force SEO phrases. Only mention "Korean food in Pune", "matcha", "gimbap", or "Lane 7" if it fits naturally.
     - No emojis unless the original review uses them.
-```python
     """
     
     user_prompt = f"Name: {name}\nRating: {rating}\nText: {review_text}"
@@ -59,7 +58,6 @@ def generate_reply(name, review_text, rating, config):
         "temperature": 0.7
     }
     
-    import requests
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"}
     
@@ -93,23 +91,32 @@ def send_telegram_draft(name, review_text, rating, reply_text, review_num=None):
     stars = "⭐" * int(rating)
     review_label = f" #{review_num}" if review_num else ""
     
-    # Message 1: The Context (Now with Stars and #)
+    # Message 1: The Context (Plain Text to Avoid Formatting Errors)
     context_msg = (
-        f"👤 *Reviewer:* {name}\n"
-        f"⭐ *Rating:* {stars}\n"
-        f"📍 *Review {review_label}*\n"
+        f"👤 Reviewer: {name}\n"
+        f"⭐ Rating: {stars}\n"
+        f"📍 Review {review_label}\n"
         f"💬 \"{review_text}\""
     )
     
     # Message 2: The Artisan Reply
-    reply_msg = f"{reply_text}"
+    reply_msg = f"Koicha Reply Draft:\n\n{reply_text}"
     
     try:
-        requests.post(url, json={"chat_id": chat_id, "text": context_msg, "parse_mode": "Markdown"})
-        requests.post(url, json={"chat_id": chat_id, "text": reply_msg})
-        print(f"[SUCCESS] {rating}-star draft sent for {name}.")
+        # Send Context
+        r1 = requests.post(url, json={"chat_id": chat_id, "text": context_msg})
+        if r1.status_code != 200:
+            print(f"[TELEGRAM ERROR] Context failed ({r1.status_code}): {r1.text}")
+            
+        # Send Reply Draft
+        r2 = requests.post(url, json={"chat_id": chat_id, "text": reply_msg})
+        if r2.status_code != 200:
+            print(f"[TELEGRAM ERROR] Reply failed ({r2.status_code}): {r2.text}")
+        else:
+            print(f"[SUCCESS] {rating}-star draft sent for {name}.")
+            
     except Exception as e:
-        print(f"Telegram Error: {e}")
+        print(f"Telegram Exception: {e}")
 
 def run():
     print("\nKoicha Review Intelligence -- Module 4")
