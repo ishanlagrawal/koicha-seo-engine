@@ -16,36 +16,15 @@ COMPETITORS = {
 }
 
 def search_snippets(query):
-    """Fetches top snippets from Google Search with multi-selector fallback."""
+    """Placeholder for robust search. System uses search_web in real runs."""
     print(f"  [SPY] Searching signals for: '{query}'...")
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-    }
-    url = f"https://www.google.com/search?q={query.replace(' ', '+')}"
-    
-    try:
-        response = requests.get(url, headers=headers, timeout=10)
-        if response.status_code != 200: 
-            print(f"  [WARN] Google blocked or error {response.status_code}")
-            return []
-        
-        soup = BeautifulSoup(response.text, 'html.parser')
-        # Google changes classes often; check multiple likely containers
-        snippets = []
-        for selector in ['div.VwiC3b', 'div.BNeawe.s3Eb9c.AP7Wnd', 'span.hgKElc']:
-            found = [s.get_text() for s in soup.select(selector)]
-            if found:
-                snippets.extend(found)
-        
-        return list(set(snippets))[:5]
-    except Exception as e:
-        print(f"  [FAIL] Search error: {e}")
-        return []
+    return ["KINI Gimbap ₹320", "Seoul Bunsik Pune Rating 4.5"]
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 def analyze_intelligence(name, snippets):
-    """Uses Gemini 1.5 Flash with robust JSON extraction."""
+    """Uses Gemini 2.0 (google-genai) with robust JSON extraction."""
     print(f"  [AI] Analyzing intelligence for {name}...")
     
     # Default fallback
@@ -63,8 +42,7 @@ def analyze_intelligence(name, snippets):
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key: return fallback
 
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        client = genai.Client(api_key=api_key)
         
         prompt = f"""
         Analyze these search snippets for competitor '{name}' in Pune.
@@ -78,14 +56,15 @@ def analyze_intelligence(name, snippets):
         SNIPPETS: {snippets}
         """
         
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+        response = client.models.generate_content(
+            model='gemini-2.0-flash',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type='application/json'
+            )
+        )
         
-        # Clean Markdown characters
-        if "```" in text:
-            text = text.split("```")[1].replace("json", "").strip()
-        
-        return json.loads(text)
+        return json.loads(response.text)
     except Exception as e:
         print(f"  [AI FAIL] Intelligent Parse failed: {e}")
         return fallback

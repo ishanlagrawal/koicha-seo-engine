@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en-IN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>{{ config.site_name }} | A Quiet Ritual of Flavor</title>
+    <meta name="description" content="{{ config.site_description }}">
+    <link rel="canonical" href="https://koicha-seo-engine.pages.dev/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ config.site_name }}">
+    <meta property="og:description" content="{{ config.site_description }}">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://koicha-seo-engine.pages.dev/">
+    <meta property="og:image" content="https://koicha-seo-engine.pages.dev/static/images/koicha-korean-food-matcha-koregaon-park-pune.jpg">
+
+    <!-- Design System Assets -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-low": "#f5f3ee",
+                "surface-container-highest": "#e4e2dd",
+                "on-surface": "#1b1c19",
+                "on-primary": "#ffffff",
+                "outline": "#75786f",
+                "on-secondary-container": "#78613c",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#fddeb0",
+                "on-primary-container": "#ddebcc",
+                "surface": "#fbf9f4",
+                "background": "#fbf9f4",
+                "surface-container-high": "#eae8e3",
+                "tertiary-fixed": "#e1e3de",
+                "tertiary": "#4d504d",
+                "surface-container": "#f0eee9",
+                "on-tertiary-container": "#e5e7e2",
+                "primary-container": "#5e6b52",
+                "primary-fixed": "#d9e7c8",
+                "on-secondary-fixed-variant": "#584321",
+                "inverse-on-surface": "#f2f1ec",
+                "on-tertiary-fixed-variant": "#444844",
+                "on-secondary": "#ffffff",
+                "surface-tint": "#56624a",
+                "on-background": "#1b1c19",
+                "tertiary-container": "#656864",
+                "primary": "#46533b",
+                "outline-variant": "#c5c8bd",
+                "surface-variant": "#e4e2dd",
+                "secondary-container": "#fddeb0",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#bdcbad",
+                "on-surface-variant": "#454840",
+                "on-primary-fixed": "#141f0b",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#e0c296",
+                "secondary": "#715b37",
+                "inverse-surface": "#30312e",
+                "inverse-primary": "#bdcbad",
+                "on-primary-fixed-variant": "#3e4a34",
+                "error-container": "#ffdad6",
+                "on-error": "#ffffff",
+                "on-secondary-fixed": "#281900",
+                "tertiary-fixed-dim": "#c5c7c3",
+                "surface-dim": "#dbdad5",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#fbf9f4",
+                "on-tertiary-fixed": "#191c1a"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              "fontFamily": {
+                "headline": ["Noto Serif"],
+                "serif": ["Noto Serif"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+              }
+            },
+          }
+        }
+    </script>
+    <style>
+        body { font-family: 'Manrope', sans-serif; background-color: #fbf9f4; color: #1b1c19; -webkit-font-smoothing: antialiased; margin: 0; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- DESKTOP VIEWPORT -->
+    <div class="hidden md:block">
+        <!-- [LITERAL DESKTOP MARKUP START] -->
+        <nav class="fixed top-0 w-full flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto bg-[#fbf9f4]/90 dark:bg-[#1a1a1a]/90 backdrop-blur-md z-50">
+            <div class="font-serif text-2xl font-semibold tracking-tighter text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+            <div class="flex items-center gap-10">
+                <a class="font-serif text-lg tracking-tight text-[#46533b] dark:text-[#f2f4ef] border-b-2 border-[#715b37] pb-1" href="/">Our Story</a>
+                <a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="/matcha-pune.html">The Matcha</a>
+                <a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="/menu.html">Menu</a>
+                <a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="/korean-food-pune-guide.html">Experience</a>
+                <a class="font-serif text-lg tracking-tight text-[#46533b]/60 dark:text-[#f2f4ef]/60 hover:text-[#46533b] dark:hover:text-[#f2f4ef] transition-colors duration-300" href="{{ config.location.google_maps_url }}">Find Us</a>
+            </div>
+            <a href="https://www.swiggy.com/direct/brand/771805" class="bg-primary text-on-primary px-8 py-2.5 rounded-lg font-label text-[0.75rem] uppercase tracking-widest hover:bg-primary/90 transition-all duration-500 text-center" target="_blank">
+                Order Now
+            </a>
+        </nav>
+
+        <header class="relative h-screen w-full flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover brightness-[0.85]" src="/static/images/stitch/hero_desktop.webp"/>
+            </div>
+            <div class="relative z-10 w-full max-w-screen-2xl mx-auto px-12 mt-20">
+                <div class="max-w-3xl">
+                    <h1 class="font-serif text-[4.5rem] leading-[1.1] text-white tracking-tight mb-6">A Quiet Ritual <br/> of Flavor</h1>
+                    <p class="font-body text-xl text-white/90 mb-12 max-w-xl leading-relaxed">Experience the precise art of Korean cuisine and ceremonial tea in the heart of Koregaon Park. A sanctuary for the senses.</p>
+                    <div class="flex flex-wrap gap-6">
+                        <a href="{{ config.location.google_maps_url }}" class="bg-white text-primary px-10 py-4 rounded-lg font-label text-[0.85rem] uppercase tracking-widest font-semibold hover:bg-surface transition-all duration-300">Visit Us</a>
+                        <a href="/menu.html" class="border border-white/30 backdrop-blur-sm text-white px-10 py-4 rounded-lg font-label text-[0.85rem] uppercase tracking-widest hover:bg-white/10 transition-all duration-300">The Menu</a>
+                        <a href="https://www.swiggy.com/direct/brand/771805" class="text-white px-6 py-4 font-label text-[0.85rem] uppercase tracking-widest flex items-center gap-2 group" target="_blank">
+                            Order Online <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-32 bg-surface">
+            <div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+                <div class="lg:col-span-5">
+                    <span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-4 block">The Provenance</span>
+                    <h2 class="font-serif text-[2.75rem] text-primary leading-tight mb-8">Rooted in Tradition, <br/>Refined in Pune.</h2>
+                    <div class="space-y-6 font-body text-on-surface-variant leading-[1.8] text-lg">
+                        <p>Koicha was born from a desire to translate the meditative pace of a Korean tea ceremony into a modern culinary language. We believe that true luxury lies in the space between the notes—the silence that accompanies a perfectly poured bowl of matcha.</p>
+                        <p>In our Lane 7 atelier, every ingredient is curated with an archivist’s precision, from fermented sauces aged in stone jars to hand-picked tea leaves from the misty slopes of Jeju.</p>
+                    </div>
+                    <div class="mt-12">
+                        <a class="inline-flex items-center gap-2 text-primary font-label text-[0.8rem] uppercase tracking-widest group" href="/matcha-pune.html">Explore Our Philosophy <span class="w-12 h-[1px] bg-secondary group-hover:w-16 transition-all duration-500"></span></a>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 flex justify-end">
+                    <div class="relative w-full aspect-[4/5] max-w-lg">
+                        <div class="absolute -inset-4 bg-surface-container-low translate-x-4 translate-y-4"></div>
+                        <img class="relative z-10 w-full h-full object-cover" src="/static/images/stitch/provenance_desktop.webp"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-screen-2xl mx-auto px-12">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-2 block">Our Specialties</span>
+                        <h2 class="font-serif text-4xl text-primary">Artisanal Highlights</h2>
+                    </div>
+                    <p class="font-body text-on-surface-variant max-w-xs text-sm">A seasonal selection of our most requested pairings.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+                        <div class="aspect-[1/1] overflow-hidden rounded mb-6">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/static/images/stitch/tiramisu.webp"/>
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-serif text-xl text-primary">Matcha Tiramisu</h3>
+                            <span class="font-label text-xs text-secondary">Signature</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">Mascarpone clouds infused with ceremonial grade matcha, layered between sponge soaked in cold-brew umami.</p>
+                    </div>
+                    <div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5 translate-y-8">
+                        <div class="aspect-[1/1] overflow-hidden rounded mb-6">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/static/images/stitch/mandu.webp"/>
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-serif text-xl text-primary">Kimchi Mandu</h3>
+                            <span class="font-label text-xs text-secondary">Seasonal</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">Hand-pleated dumplings filled with 3-month aged kimchi and silken tofu. Served with charred scallion oil.</p>
+                    </div>
+                    <div class="group bg-surface-container-lowest p-6 rounded-lg transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+                        <div class="aspect-[1/1] overflow-hidden rounded mb-6">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/static/images/stitch/yuzu.webp"/>
+                        </div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-serif text-xl text-primary">Yuzu Sparkler</h3>
+                            <span class="font-label text-xs text-secondary">Aperitif</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">Cold-pressed yuzu, fermented honey, and sparkling mineral water. A bright, citrusy pause before the meal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 bg-surface">
+            <div class="max-w-screen-md mx-auto px-12 text-center">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-8">format_quote</span>
+                <blockquote class="font-serif text-3xl italic text-primary leading-snug mb-8">"Koicha isn't just a restaurant; it's a sensory pause button in the middle of Pune's chaos. The attention to detail in their tea ritual is unparalleled."</blockquote>
+                <cite class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">— Editorial, The Modern Archivist</cite>
+            </div>
+        </section>
+
+        <section class="py-24 bg-surface-container">
+            <div class="max-w-screen-2xl mx-auto px-12">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl text-primary mb-4">First Time?</h2>
+                    <p class="font-body text-on-surface-variant">We've curated three paths for your first Koicha experience.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">coffee</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-primary mb-3">The Tea Ceremony</h4>
+                        <p class="font-body text-sm text-on-surface-variant mb-6">A 45-minute guided tasting of rare single-origin teas and traditional sweets.</p>
+                        <a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="/matcha-pune.html">Book Experience</a>
+                    </div>
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">restaurant</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-primary mb-3">The Chef's Table</h4>
+                        <p class="font-body text-sm text-on-surface-variant mb-6">A six-course exploration of contemporary Korean flavors and fermentation.</p>
+                        <a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="/menu.html">Reserve Table</a>
+                    </div>
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
+                            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">local_mall</span>
+                        </div>
+                        <h4 class="font-serif text-xl text-primary mb-3">The Takeaway</h4>
+                        <p class="font-body text-sm text-on-surface-variant mb-6">Signature brews and pantry staples to bring the Koicha ritual home.</p>
+                        <a class="text-secondary font-label text-[0.7rem] uppercase tracking-widest border-b border-secondary/20 pb-1" href="https://www.swiggy.com/direct/brand/771805">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 bg-surface overflow-hidden">
+            <div class="max-w-screen-2xl mx-auto px-12 flex flex-col lg:flex-row items-center gap-20">
+                <div class="w-full lg:w-1/2">
+                    <span class="font-label text-[0.7rem] uppercase tracking-[0.3em] text-secondary mb-4 block">Location</span>
+                    <h2 class="font-serif text-4xl text-primary mb-8">Visit the Atelier</h2>
+                    <div class="space-y-8 font-body">
+                        <div>
+                            <h5 class="font-bold text-primary mb-2">Address</h5>
+                            <p class="text-on-surface-variant leading-relaxed">Lane 7, Koregaon Park,<br/>Next to the Banyan Grove,<br/>Pune, Maharashtra 411001</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-primary mb-2">Contact</h5>
+                            <p class="text-on-surface-variant">hello@koicha.atelier<br/>+91 20 4930 2211</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-primary mb-2">Hours</h5>
+                            <p class="text-on-surface-variant">Tue – Sun: 11:00 AM – 10:00 PM<br/>Mon: Closed</p>
+                        </div>
+                        <a href="{{ config.location.google_maps_url }}" class="inline-block bg-primary text-on-primary px-10 py-3.5 rounded-lg font-label text-xs uppercase tracking-widest mt-4">Get Directions</a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="aspect-square bg-surface-container-high rounded-full overflow-hidden border-[12px] border-surface-container relative">
+                        <img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" src="/static/images/stitch/atelier_map.webp"/>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-4 h-4 bg-secondary rounded-full animate-ping"></div>
+                            <div class="absolute w-4 h-4 bg-secondary rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#f0eee9] dark:bg-[#151613] full-width py-20 border-t border-outline-variant/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-screen-2xl mx-auto">
+                <div class="space-y-6">
+                    <div class="font-serif text-xl text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+                    <p class="font-sans text-xs uppercase tracking-widest leading-loose text-[#46533b]/70">Artisan Korean Atelier<br/>Crafting stillness through flavor.</p>
+                </div>
+                <div>
+                    <h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Discover</h6>
+                    <ul class="space-y-4">
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="/matcha-pune.html">Provenance</a></li>
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Wholesale</a></li>
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="/korean-food-pune-guide.html">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Inquiry</h6>
+                    <ul class="space-y-4">
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Privacy</a></li>
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Press</a></li>
+                        <li><a class="font-sans text-xs uppercase tracking-widest text-[#46533b]/70 hover:text-[#715b37] transition-all" href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-label text-[0.7rem] uppercase tracking-widest text-primary mb-8 font-bold">Connect</h6>
+                    <div class="flex gap-4">
+                        <a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">brand_awareness</span></a>
+                        <a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
+                    </div>
+                    <p class="font-sans text-[0.65rem] uppercase tracking-widest text-[#46533b]/40 mt-12">© 2024 Koicha Artisan Atelier. Lane 7, Pune.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- [LITERAL DESKTOP MARKUP END] -->
+    </div>
+
+    <!-- MOBILE VIEWPORT -->
+    <div class="block md:hidden">
+        <!-- [LITERAL MOBILE MARKUP START] -->
+        <nav class="fixed top-0 w-full flex justify-between items-center px-6 py-6 bg-[#fbf9f4]/90 dark:bg-[#1a1a1a]/90 backdrop-blur-md z-50">
+            <div class="font-serif text-2xl font-semibold tracking-tighter text-[#46533b] dark:text-[#f2f4ef]">Koicha</div>
+            <button class="bg-primary text-on-primary px-6 py-2 rounded-md font-label text-xs uppercase tracking-widest transition-all duration-500">
+                Shop
+            </button>
+        </nav>
+
+        <section class="relative h-[884px] w-full overflow-hidden flex flex-col justify-end px-6 pb-20 pt-24">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" src="/static/images/stitch/hero_mobile.webp"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+            <div class="relative z-10 space-y-8 max-w-lg">
+                <div class="space-y-2">
+                    <p class="font-label text-xs text-white/80 uppercase tracking-[0.3em]">The Art of the Pour</p>
+                    <h1 class="font-headline text-5xl text-white leading-[1.1] tracking-tight">A Quiet Ritual of Flavor</h1>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a class="bg-surface-container-lowest text-primary py-4 text-center font-label text-xs uppercase tracking-widest font-semibold rounded-lg shadow-sm" href="/menu.html">The Menu</a>
+                    <a class="bg-transparent border border-white/30 text-white py-4 text-center font-label text-xs uppercase tracking-widest backdrop-blur-md rounded-lg" href="{{ config.location.google_maps_url }}">Visit Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 px-6 bg-surface relative overflow-hidden">
+            <div class="grid grid-cols-1 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="font-headline text-3xl text-primary leading-tight">Crafted in the space between heartbeats.</h2>
+                        <p class="font-body text-lg leading-relaxed text-on-surface-variant">Koicha is not just a destination; it is a dedicated pause. We source our ceremonial-grade powders from heritage farms in Uji, processing them with the precision of a modern laboratory and the soul of a century-old tea house.</p>
+                    </div>
+                    <div class="pt-4">
+                        <a class="text-primary font-label text-xs uppercase tracking-widest border-b border-secondary pb-1" href="/matcha-pune.html">Explore Provenance</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="aspect-[4/5] overflow-hidden rounded-lg">
+                        <img class="w-full h-full object-cover" src="/static/images/stitch/provenance_mobile.webp"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-surface-container-low">
+            <div class="px-6 mb-12">
+                <h3 class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4">The Selection</h3>
+                <h2 class="font-headline text-4xl text-primary">Signature Moments</h2>
+            </div>
+            <div class="flex overflow-x-auto gap-6 px-6 pb-12 no-scrollbar snap-x">
+                <div class="min-w-[85vw] snap-center bg-surface-container-lowest rounded-xl p-4 shadow-[0_40px_60px_-15px_rgba(27,28,25,0.05)]">
+                    <div class="aspect-square rounded-lg overflow-hidden mb-6">
+                        <img class="w-full h-full object-cover" src="/static/images/stitch/ceremonial_cloud.webp"/>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-headline text-xl text-primary">Ceremonial Cloud</h4>
+                            <span class="font-body text-sm text-outline">₹450</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">Cold-whisked Uji matcha layered over Madagascar vanilla cream.</p>
+                    </div>
+                </div>
+                <div class="min-w-[85vw] snap-center bg-surface-container-lowest rounded-xl p-4 shadow-[0_40px_60px_-15px_rgba(27,28,25,0.05)]">
+                    <div class="aspect-square rounded-lg overflow-hidden mb-6">
+                        <img class="w-full h-full object-cover" src="/static/images/stitch/seventh_layer.webp"/>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-headline text-xl text-primary">The 7th Layer</h4>
+                            <span class="font-body text-sm text-outline">₹520</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">Burnt-top cheesecake infused with deep vegetal notes and miso caramel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-surface-container text-center">
+            <div class="max-w-2xl mx-auto space-y-8">
+                <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <blockquote class="font-headline text-2xl italic leading-relaxed text-primary">"In a city that never stops moving, Koicha is the silence I've been searching for."</blockquote>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-[#F2F4EF]">
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-4">Location</h3>
+                    <h2 class="font-headline text-4xl text-primary mb-6">Come find your stillness.</h2>
+                    <p class="font-body text-lg text-on-surface-variant">Lane 7, Koregaon Park. <br/>Pune, India 411001</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <a class="bg-primary text-on-primary py-4 px-6 rounded-lg text-center font-label text-xs uppercase tracking-widest" href="{{ config.location.google_maps_url }}">Directions</a>
+                    <a class="bg-white border border-outline-variant/30 py-4 px-6 rounded-lg text-center font-label text-xs uppercase tracking-widest text-primary" href="https://wa.me/{{ whatsapp_num }}">WhatsApp Us</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-[#f0eee9] py-20 px-6 text-center">
+            <div class="font-serif text-xl text-[#46533b] mb-6">Koicha</div>
+            <p class="font-body text-[10px] uppercase tracking-widest text-on-surface-variant">© 2024 Koicha Artisan Atelier. Lane 7, Pune.</p>
+        </footer>
+        <!-- [LITERAL MOBILE MARKUP END] -->
+    </div>
+
+</body>
+</html>

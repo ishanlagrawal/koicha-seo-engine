@@ -81,8 +81,8 @@ def get_fallback_reviews():
     ]
 
 def build_index(config: dict, env: Environment, reviews: list):
-    print("Building index.html (with Social Proof)...")
-    template = env.get_template("index.html")
+    print("Building high-fidelity index.html (Stitch Port)...")
+    template = env.get_template("stitch_home.html")
     
     schema_path = Path("static/schema/koicha_schema.json")
     restaurant_schema = "{}"
@@ -90,11 +90,12 @@ def build_index(config: dict, env: Environment, reviews: list):
         with open(schema_path, "r", encoding="utf-8") as f:
             restaurant_schema = f.read()
 
+    # Use empty string for base_url on Cloudflare to support root-relative paths
     html = template.render(
         config=config,
         reviews=reviews,
         restaurant_schema=restaurant_schema,
-        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        base_url="",
         page_path="",
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
@@ -124,7 +125,7 @@ def build_guide_page(config: dict, env: Environment, filename: str, title: str, 
     html = template.render(
         config=config,
         content=styled_content,
-        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        base_url="", 
         page_path=filename,
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
@@ -145,7 +146,7 @@ def build_menu_page(config: dict, env: Environment):
     html = template.render(
         config=config,
         menu_schema=menu_schema,
-        base_url=os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/"),
+        base_url="",
         page_path="menu.html",
         whatsapp_num=os.getenv("KOICHA_WHATSAPP"),
         logo_url=LOGO_PATH
@@ -155,8 +156,8 @@ def build_menu_page(config: dict, env: Environment):
 
 def build_sitemap():
     print("Building sitemap.xml...")
-    base_url = os.getenv("SITE_BASE_URL", "https://ishanlagrawal.github.io/koicha-seo-engine").rstrip("/")
-    pages = ["", "menu.html", "matcha-pune.html", "korean-food-pune-guide.html", "faq.html"]
+    base_url = "https://koicha-seo-engine.pages.dev"
+    pages = ["", "menu.html", "matcha-pune.html", "korean-food-pune-guide.html"]
     
     xml = [
         '<?xml version="1.0" encoding="UTF-8"?>',

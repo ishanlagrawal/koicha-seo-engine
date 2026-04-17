@@ -8,7 +8,7 @@ To build a zero-cost, high-impact digital presence for Koicha (Koregaon Park, Pu
 ## 🏗️ Technical Architecture
 - **Engine:** Python-based automation.
 - **LLM:** Gemini 1.5 Flash (Primary) / Groq (Backup).
-- **Deployment:** GitHub Pages (Static Site).
+- **Deployment:** Cloudflare Pages (Static Site).
 - **Social/Local:** Google Business Profile (GBP) integration.
 - **Alerts:** Telegram Bot.
 

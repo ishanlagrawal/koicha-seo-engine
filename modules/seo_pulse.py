@@ -15,7 +15,7 @@ KEYWORDS = [
     "Koicha Pune Reviews"
 ]
 
-def check_rank(keyword, target_domain="ishanlagrawal.github.io"):
+def check_rank(keyword, target_domain="koicha-seo-engine.pages.dev"):
     """
     Simulates a Google Search search to find the ranking of the target_domain.
     We'll use a specific User-Agent to mimic a human search.
