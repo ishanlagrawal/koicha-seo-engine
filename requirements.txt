@@ -38,9 +38,6 @@ python-dotenv==1.0.1
 # Image processing
 Pillow==10.2.0
 
-# Schema.org generation helper
-schemaorg==0.0.1
-
 # Utilities
 lxml==5.1.0
 cssutils==2.9.0
