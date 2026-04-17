@@ -81,8 +81,19 @@ def poll_for_reviews():
     service = get_gmail_service()
     if not service: return
 
-    # Precise query for Google Business Profile review notifications
-    query = 'subject:"left a review for KOICHA"'
+    # Diagnostic Block: See what emails are actually in the inbox
+    print("\n--- Diagnostic: Last 5 Inbox Subjects ---")
+    diag_results = service.users().messages().list(userId='me', maxResults=5).execute()
+    diag_messages = diag_results.get('messages', [])
+    for m in diag_messages:
+        msg = service.users().messages().get(userId='me', id=m['id'], format='metadata', metadataHeaders=['Subject']).execute()
+        headers = msg.get('payload', {}).get('headers', [])
+        subj = next((h['value'] for h in headers if h['name'] == 'Subject'), 'No Subject')
+        print(f"- {subj}")
+    print("----------------------------------------\n")
+
+    # Broad query to catch all GBP reviews
+    query = 'KOICHA review'
     
     try:
         results = service.users().messages().list(userId='me', q=query, maxResults=10).execute()
